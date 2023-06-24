@@ -20,6 +20,8 @@ const Wrapper = styled.div`
   width: 40%;
   padding: 20px;
   background-color: white;
+  border-radius:25px;
+  box-shadow:5px 8px 30px #848884;
   ${mobile({ width: "75%" })}
 `;
 
