@@ -53,7 +53,6 @@ const ImgContainer = styled.div`
   height: 100%;
   flex: 1;
   z-index:1;
-  opacity:0.5;
   `;
 
 const Image = styled.img`
@@ -64,14 +63,14 @@ const Image = styled.img`
 const InfoContainer = styled.div`
   position:absolute;
   top:150px;
-  left:300px;
+  left:50px;
   padding: 50px;
   z-index: 99;
 `;
 
 const Title = styled.h1`
   font-size: 70px;
-  color:black;
+  color:white;
 `;
 
 const Desc = styled.p`
@@ -79,7 +78,7 @@ const Desc = styled.p`
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 3px;
-  color:black;
+  color:white;
 `;
 
 const Button = styled.button`
@@ -87,7 +86,7 @@ const Button = styled.button`
   font-size: 20px;
   background-color: transparent;
   cursor: pointer;
-  color: black;
+  color: white;
 `;
 
 const Slider = () => {
