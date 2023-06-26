@@ -1,6 +1,7 @@
-import Product from "./pages/Product";
+
 import Home from "./pages/Home";
-import ProductList from "./pages/ProductList";
+import Products from "./components/Products";
+import Product  from "./components/Product";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
@@ -15,6 +16,9 @@ const App = () => {
             <Home />
           </Route>
           
+          <Route exact path="/products">
+            <Products />
+          </Route>
           <Route exact path="/products/:id">
             <Product />
           </Route>

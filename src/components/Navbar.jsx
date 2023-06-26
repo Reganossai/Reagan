@@ -82,6 +82,14 @@ const Navbar = ({cartCount}) => {
           <Logo>REAGAN.</Logo>
         </Center>
         <Right>
+          
+        <MenuItem>
+            <Link to="/products">PRODUCTS</Link>
+          </MenuItem>
+
+
+
+
           <MenuItem>
             <Link to="/register">REGISTER</Link>
           </MenuItem>

@@ -1,15 +1,11 @@
-import {
-  AddToHomeScreen,
-  FavoriteBorderOutlined,
-  SearchOutlined,
-  ShoppingCartOutlined,
-} from "@material-ui/icons";
+
 import { useState, useCallback, useEffect } from "react";
 import Cart from "../pages/Cart";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
-const Product = ({ item }) => {
+
+const Product = () => {
   // const [cart, setCart] = useState([]);
   // const [cartCount, setCartCount] = useState(0);
 
@@ -42,38 +38,34 @@ const Product = ({ item }) => {
   //   }
   // };
 
-  const { id } = useParams();
+  const {id} = useParams();
   const [product, setProduct] = useState([]);
-
   const [loading, setLoading] = useState(false);
+  const [errorMessage,setErrorMessage] = useState("");
 
-  useEffect(() => {
+  useEffect(()=>{
     const getProduct = async () => {
-      setLoading(true);
+      setLoading(true); 
       const res = await axios.get(`https://fakestoreapi.com/products/${id}`);
-
-      setProduct(await res.json());
+      setProduct(res.data);
       setLoading(false);
-    };
+    }
     getProduct();
-  }, []);
+  },[])
+ 
 
-  const Loading = () => {
-    return <div>loading...</div>;
-  };
 
-  const ShowProduct = () => {
-    return (
-      <div>
-        <h1>jhudhu</h1>
-      </div>
-    );
-  };
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
 
+  if (errorMessage) {
+    return <h1>{errorMessage}</h1>;
+  }
+  
   return (
     <div> 
-      {loading? <Loading/> : <ShowProduct/>}
-     
+<h1>{product.title}</h1>
     </div>
   );
 };
