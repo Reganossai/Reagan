@@ -1,0 +1,25 @@
+*{
+    text-decoration: none;
+}
+
+a{
+    color: black;
+}
+
+.products-div{
+
+
+}
+
+.products-img{
+    width: 10%;
+}
+
+.card{
+    margin-left: 20px;
+    width: 1300px;
+}
+
+.card img{
+    padding: 20px;
+}

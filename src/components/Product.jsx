@@ -1,88 +1,80 @@
 import {
+  AddToHomeScreen,
   FavoriteBorderOutlined,
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
-import styled from "styled-components";
-
-const Info = styled.div`
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease;
-  cursor: pointer;
-`;
-
-const Container = styled.div`
-  flex: 1;
-  margin: 5px;
-  min-width: 280px;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f5fbfd;
-  position: relative;
-
-  &:hover ${Info}{
-    opacity: 1;
-  }
-`;
-
-const Circle = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
-`;
-
-const Image = styled.img`
-  height: 75%;
-  z-index: 2;
-`;
-
-const Icon = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-  transition: all 0.5s ease;
-  &:hover {
-    background-color: #e9f5f5;
-    transform: scale(1.1);
-  }
-`;
+import { useState, useCallback, useEffect } from "react";
+import Cart from "../pages/Cart";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import axios from "axios";
 
 const Product = ({ item }) => {
+  // const [cart, setCart] = useState([]);
+  // const [cartCount, setCartCount] = useState(0);
+
+  // const addToCart = (item) => {
+  //   const exist = cart.find((x) => x.id === item.id);
+  //   if (exist) {
+  //     setCart(
+  //       cart.map((x) =>
+  //         x.id === item.id ? { ...exist, qty: exist.qty + 1 } : x
+  //       )
+  //     );
+  //   } else {
+  //     setCart([...cart, { ...item, qty: 1 }]);
+  //   }
+
+  //   console.log(cart);
+  //   console.log(cartCount);
+  // };
+
+  // const onRemove = (item) => {
+  //   const exist = cart.find((x) => x.id === item.id);
+  //   if (exist.qty === 1) {
+  //     setCart(cart.filter((x) => x.id !== item.id));
+  //   } else {
+  //     setCart(
+  //       cart.map((x) =>
+  //         x.id === item.id ? { ...exist, qty: exist.qty - 1 } : x
+  //       )
+  //     );
+  //   }
+  // };
+
+  const { id } = useParams();
+  const [product, setProduct] = useState([]);
+
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const getProduct = async () => {
+      setLoading(true);
+      const res = await axios.get(`https://fakestoreapi.com/products/${id}`);
+
+      setProduct(await res.json());
+      setLoading(false);
+    };
+    getProduct();
+  }, []);
+
+  const Loading = () => {
+    return <div>loading...</div>;
+  };
+
+  const ShowProduct = () => {
+    return (
+      <div>
+        <h1>jhudhu</h1>
+      </div>
+    );
+  };
+
   return (
-    <Container>
-      <Circle />
-      <Image src={item.img} />
-      <Info>
-        <Icon>
-          <ShoppingCartOutlined />
-        </Icon>
-        <Icon>
-          <SearchOutlined />
-        </Icon>
-        <Icon>
-          <FavoriteBorderOutlined />
-        </Icon>
-      </Info>
-    </Container>
+    <div> 
+      {loading? <Loading/> : <ShowProduct/>}
+     
+    </div>
   );
 };
 
