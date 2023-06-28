@@ -14,14 +14,20 @@ a{
 
 }
 
-.products-div{
+.prod-container{
+    display: flex;
+    padding: 80px;
+}
 
+.prod-text{
+    padding: 50px;
 
 }
 
 .products-img{
     width: 10%;
 }
+
 
 .card{
     margin-left: 20px;
@@ -30,4 +36,23 @@ a{
 
 .card img{
     padding: 20px;
+}
+
+
+
+.skel{
+    display: flex;
+}
+
+#first-skel{
+    padding: 100px 0px 0px 80px;
+}
+
+#second-skel{
+    margin: 120px 250px 0px 50px;
+
+}
+
+.navbar-carticon{
+    color:darkblue;
 }

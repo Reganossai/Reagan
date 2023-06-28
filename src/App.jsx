@@ -1,40 +1,41 @@
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
+
+import { connect } from "react-redux";
+
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Products from "./components/Products";
-import Product  from "./components/Product";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import Cart from "./pages/Cart";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Cart from "./components/Cart/Cart";
+import SingleItem from "./components/SingleItem";
 
-const App = () => {
+function App({ current }) {
   return (
-    <div>
-      <BrowserRouter>
+    <Router>
+      <div className="app">
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          
-          <Route exact path="/products">
-            <Products />
-          </Route>
-          <Route exact path="/products/:id">
-            <Product />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/cart">
-            <Cart />
-          </Route>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/cart" component={Cart} />
+          {!current ? (
+            <Redirect to="/" />
+          ) : (
+            <Route exact path="/product/:id" component={SingleItem} />
+          )}
         </Switch>
-      </BrowserRouter>
-    </div>
+      </div>
+    </Router>
   );
+}
+
+const mapStateToProps = (state) => {
+  return {
+    current: state.shop.currentItem,
+  };
 };
 
-export default App;
+export default connect(mapStateToProps)(App);

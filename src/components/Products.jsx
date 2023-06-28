@@ -1,9 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import {Link } from "react-router-dom";
+import { connect } from 'react-redux';
+import Product from "./Product";
+import Loading from "./Loading";
 
-const Products = () => {
-  const [data, setData] = useState([]);
+const Products = ({products}) => {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -11,9 +13,6 @@ const Products = () => {
     try {
       setLoading(true);
       setErrorMessage("");
-      const res = await axios.get("https://fakestoreapi.com/products");
-      setData(res.data);
-      console.log(res.data);
     } catch (err) {
       setErrorMessage(err.message);
     } finally {
@@ -26,7 +25,7 @@ const Products = () => {
   }, [callBck]);
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <div><Loading/></div>;
   }
 
   if (errorMessage) {
@@ -35,7 +34,11 @@ const Products = () => {
 
   return (
     <div className="products-div">
-      <h1 className="products-header">Products</h1>
+      
+      {products.map(prod => (
+        <Product key={prod.id} productData={prod}/>
+      ))}
+      {/* <h1 className="products-header">Products</h1>
       {data.map((item) => (
         <div className="card" key={item.id}>
             <img src={item.image} className="products-img" alt="..." />
@@ -52,9 +55,16 @@ const Products = () => {
             </button>
           </div>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };
 
-export default Products;
+
+const mapStateToProps = (state) => {
+  return {
+    products: state.shop.products,
+  };
+};
+
+export default connect(mapStateToProps)(Products);

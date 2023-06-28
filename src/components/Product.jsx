@@ -1,73 +1,46 @@
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
-import { useState, useCallback, useEffect } from "react";
-import Cart from "../pages/Cart";
-import axios from "axios";
-import { useParams } from "react-router-dom";
+// Redux
+import { connect } from "react-redux";
+import { loadCurrentItem, addToCart } from "../redux/Shopping/shopping-actions";
 
-
-const Product = () => {
-  // const [cart, setCart] = useState([]);
-  // const [cartCount, setCartCount] = useState(0);
-
-  // const addToCart = (item) => {
-  //   const exist = cart.find((x) => x.id === item.id);
-  //   if (exist) {
-  //     setCart(
-  //       cart.map((x) =>
-  //         x.id === item.id ? { ...exist, qty: exist.qty + 1 } : x
-  //       )
-  //     );
-  //   } else {
-  //     setCart([...cart, { ...item, qty: 1 }]);
-  //   }
-
-  //   console.log(cart);
-  //   console.log(cartCount);
-  // };
-
-  // const onRemove = (item) => {
-  //   const exist = cart.find((x) => x.id === item.id);
-  //   if (exist.qty === 1) {
-  //     setCart(cart.filter((x) => x.id !== item.id));
-  //   } else {
-  //     setCart(
-  //       cart.map((x) =>
-  //         x.id === item.id ? { ...exist, qty: exist.qty - 1 } : x
-  //       )
-  //     );
-  //   }
-  // };
-
-  const {id} = useParams();
-  const [product, setProduct] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [errorMessage,setErrorMessage] = useState("");
-
-  useEffect(()=>{
-    const getProduct = async () => {
-      setLoading(true); 
-      const res = await axios.get(`https://fakestoreapi.com/products/${id}`);
-      setProduct(res.data);
-      setLoading(false);
-    }
-    getProduct();
-  },[])
- 
-
-
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (errorMessage) {
-    return <h1>{errorMessage}</h1>;
-  }
-  
+const Product = ({ productData, product, addToCart, loadCurrentItem }) => {
   return (
-    <div> 
-<h1>{product.title}</h1>
+    <div>
+      <img src={productData.image} alt={productData.title} />
+
+      <div>
+        <p>{productData.title}</p>
+        <p>{productData.description}</p>
+        <p>$ {productData.price}</p>
+      </div>
+
+      <div>
+        <Link to={`/product/${productData.id}`}>
+          <button
+            className="btn btn-outline-dark"
+            onClick={() => loadCurrentItem(productData)}
+          >
+            View Item
+          </button>
+        </Link>
+        <button
+          className="btn btn-primary"
+          onClick={() => addToCart(productData.id)}
+        >
+          Add To Cart
+        </button>
+      </div>
     </div>
   );
 };
 
-export default Product;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => dispatch(addToCart(id)),
+    loadCurrentItem: (item) => dispatch(loadCurrentItem(item)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Product);

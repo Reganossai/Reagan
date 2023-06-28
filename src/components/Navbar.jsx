@@ -1,9 +1,10 @@
-import { Badge } from "@material-ui/core";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.div`
   height: 60px;
@@ -67,28 +68,32 @@ const MenuItem = styled.div`
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
-const Navbar = ({cartCount}) => {
+const Navbar = ({ cart }) => {
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    let count = 0;
+    cart.forEach((item) => {
+      count += item.qty;
+    });
+
+    setCartCount(count);
+  }, [cart, cartCount]);
+
   return (
     <Container>
       <Wrapper>
         <Left>
-          <Language>EN</Language>
-          <SearchContainer>
-            <Input placeholder="Search" />
-            <Search style={{ color: "gray", fontSize: 16 }} />
-          </SearchContainer>
+          <h1>Reagan</h1>
         </Left>
         <Center>
-          <Logo>REAGAN.</Logo>
+          <h2>Reagan</h2>
         </Center>
         <Right>
-          
+             
         <MenuItem>
             <Link to="/products">PRODUCTS</Link>
           </MenuItem>
-
-
-
 
           <MenuItem>
             <Link to="/register">REGISTER</Link>
@@ -97,12 +102,11 @@ const Navbar = ({cartCount}) => {
           <MenuItem>
             <Link to="/login">SIGN IN</Link>
           </MenuItem>
+
           <MenuItem>
-            <Link to="/cart">
-              <Badge badgeContent={cartCount} color="primary">
-                <ShoppingCartOutlined />
-              </Badge>
-            </Link>
+          <Link to="/cart">
+            <div><span><FontAwesomeIcon icon={faCartShopping} className="navbar-carticon"/> </span> Cart ({cartCount})</div>
+          </Link>
           </MenuItem>
         </Right>
       </Wrapper>
@@ -110,4 +114,10 @@ const Navbar = ({cartCount}) => {
   );
 };
 
-export default Navbar;
+const mapStateToProps = (state) => {
+  return {
+    cart: state.shop.cart,
+  };
+};
+
+export default connect(mapStateToProps)(Navbar);
