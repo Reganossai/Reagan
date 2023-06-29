@@ -1,3 +1,5 @@
+import { useState, useEffect, useCallback } from "react";
+import axios from "axios";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 
@@ -20,8 +22,8 @@ const Wrapper = styled.div`
   width: 40%;
   padding: 20px;
   background-color: white;
-  border-radius:25px;
-  box-shadow:5px 8px 30px #848884;
+  border-radius: 25px;
+  box-shadow: 5px 8px 30px #848884;
   ${mobile({ width: "75%" })}
 `;
 
@@ -57,22 +59,156 @@ const Button = styled.button`
 `;
 
 const Register = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [country, setCountry] = useState("");
+  const [state, setState] = useState("");
+  const [city, setCity] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const callBck = useCallback(async () => {
+    try {
+      const data = {
+        email,
+        password,
+        name ,
+        phone ,
+        address ,
+        country ,
+        state ,
+        city ,
+        postalCode 
+      };
+      
+      const headers = {};
+      const config = {
+        headers,
+        maxBodyLength: Infinity,
+      };
+      console.log("data",data);
+      const res = await axios.post(
+        "https://kinkiverse.onrender.com/users/signup",
+        data,
+        config
+      );
+
+      console.log(res);
+    } catch (err) {
+      setErrorMessage(err.message);
+    } finally {
+    }
+  }, []);
+
+
+  // const postData = async () => {
+  //   try {
+  //     const data = {
+  //       email: "donald@gmail.com",
+  //       password: "password",
+  //       name: "ajala tunde",
+  //       phone: "+23446256655",
+  //       address: "your address",
+  //       country: "ghana",
+  //       state: "ikoyi",
+  //       city: "lasgidi",
+  //       postalCode: 102101,
+  //     };
+
+  //     const response = await axios.post(
+  //       "https://kinkiverse.onrender.com/users/signup",
+  //       data
+  //     );
+  //     console.log(JSON.stringify(response.data));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // postData();
+
   return (
     <Container>
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
         <Form>
-          <Input placeholder="name" />
-          <Input placeholder="last name" />
-          <Input placeholder="username" />
-          <Input placeholder="email" />
-          <Input placeholder="password" />
-          <Input placeholder="confirm password" />
+          <Input
+            placeholder="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <Input
+            placeholder="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <Input
+            placeholder="name"
+            value={name}
+            required
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+          <Input
+            placeholder="phone number"
+            value={phone}
+            onChange={(e) => {
+              setPhone(e.target.value);
+            }}
+          />
+          <Input
+            placeholder="address"
+            value={address}
+            onChange={(e) => {
+              setAddress(e.target.value);
+            }}
+          />
+          <Input
+            placeholder="country"
+            value={country}
+            onChange={(e) => {
+              setCountry(e.target.value);
+            }}
+          />
+          <Input
+            placeholder="state"
+            value={state}
+            onChange={(e) => {
+              setState(e.target.value);
+            }}
+          />
+          <Input
+            placeholder="city"
+            value={city}
+            onChange={(e) => {
+              setCity(e.target.value);
+            }}
+          />
+          <Input
+            placeholder="postal code"
+            value={postalCode}
+            onChange={(e) => {
+              setPostalCode(e.target.value);
+            }}
+          />
+
           <Agreement>
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
           </Agreement>
-          <Button>CREATE</Button>
+          <Button type="submit" onClick={callBck}>
+            CREATE
+          </Button>
         </Form>
       </Wrapper>
     </Container>

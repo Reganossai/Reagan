@@ -56,3 +56,7 @@ a{
 .navbar-carticon{
     color:darkblue;
 }
+
+.menu-links{
+    text-decoration: none;
+}

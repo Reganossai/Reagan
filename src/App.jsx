@@ -5,22 +5,25 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-
-
 import { connect } from "react-redux";
-
-import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Cart from "./components/Cart/Cart";
+import Products from "./components/Products";
 import SingleItem from "./components/SingleItem";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App({ current }) {
+  
   return (
     <Router>
       <div className="app">
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/cart" component={Cart} />
+          <Route path="/products" component={Products} />
+          <Route path="/signin" component={Login} />
+          <Route path="/signup" component={Register} />
           {!current ? (
             <Redirect to="/" />
           ) : (

@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import Product from "./Product";
 import Loading from "./Loading";
 
+
 const Products = ({products}) => {
+  const [Data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -13,6 +15,11 @@ const Products = ({products}) => {
     try {
       setLoading(true);
       setErrorMessage("");
+      const res = await axios.get(
+        "https://fakestoreapi.com/products"
+      );
+      setData(res.data);
+
     } catch (err) {
       setErrorMessage(err.message);
     } finally {
@@ -25,7 +32,7 @@ const Products = ({products}) => {
   }, [callBck]);
 
   if (loading) {
-    return <div><Loading/></div>;
+    return <Loading/>
   }
 
   if (errorMessage) {
@@ -34,29 +41,35 @@ const Products = ({products}) => {
 
   return (
     <div className="products-div">
+     
+    {(loading) ? <Loading/> :
       
-      {products.map(prod => (
-        <Product key={prod.id} productData={prod}/>
-      ))}
-      {/* <h1 className="products-header">Products</h1>
-      {data.map((item) => (
-        <div className="card" key={item.id}>
-            <img src={item.image} className="products-img" alt="..." />
-                    <div className="card-body">
-            <h5 class="card-title">{item.title}</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <button className="btn btn-outline">
-            <Link to={`/products/${item.id}`}>
-              Show Product details
-            </Link>
-            </button>
-          </div>
+      
+      <div>
+    {products.map(prod => (
+      <Product key={prod.id} productData={prod}/>
+    ))}
+    {/* <h1 className="products-header">Products</h1>
+    {data.map((item) => (
+      <div className="card" key={item.id}>
+          <img src={item.image} className="products-img" alt="..." />
+                  <div className="card-body">
+          <h5 class="card-title">{item.title}</h5>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <button className="btn btn-outline">
+          <Link to={`/products/${item.id}`}>
+            Show Product details
+          </Link>
+          </button>
         </div>
-      ))} */}
-    </div>
+      </div>
+    ))} */}
+  </div>
+}
+  </div>  
   );
 };
 

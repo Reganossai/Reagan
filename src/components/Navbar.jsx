@@ -92,19 +92,20 @@ const Navbar = ({ cart }) => {
         <Right>
              
         <MenuItem>
-            <Link to="/products">PRODUCTS</Link>
+
+            <Link to="/products" className="menu-links">PRODUCTS</Link>
           </MenuItem>
 
           <MenuItem>
-            <Link to="/register">REGISTER</Link>
+            <Link to="/signup"  className="menu-links">REGISTER</Link>
           </MenuItem>
 
           <MenuItem>
-            <Link to="/login">SIGN IN</Link>
+            <Link to="/signin"  className="menu-links">SIGN IN</Link>
           </MenuItem>
 
           <MenuItem>
-          <Link to="/cart">
+          <Link to="/cart"  className="menu-links">
             <div><span><FontAwesomeIcon icon={faCartShopping} className="navbar-carticon"/> </span> Cart ({cartCount})</div>
           </Link>
           </MenuItem>
