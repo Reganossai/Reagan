@@ -12,10 +12,15 @@ import Products from "./components/Products";
 import SingleItem from "./components/SingleItem";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App({ current }) {
   
   return (
+    <>
+      <ToastContainer />
+      
     <Router>
       <div className="app">
         <Switch>
@@ -32,6 +37,7 @@ function App({ current }) {
         </Switch>
       </div>
     </Router>
+    </>
   );
 }
 

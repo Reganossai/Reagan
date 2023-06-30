@@ -84,10 +84,9 @@ const Navbar = ({ cart }) => {
     <Container>
       <Wrapper>
         <Left>
-          <h1>Reagan</h1>
         </Left>
         <Center>
-          <h2>Reagan</h2>
+        <h1 className="logo">Bawdy</h1>
         </Center>
         <Right>
              

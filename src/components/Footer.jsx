@@ -88,7 +88,7 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>REAGAN.</Logo>
+        <Logo><h1 className="logo">Bawdy</h1></Logo>
         <Desc>
           There are many variations of passages of Lorem Ipsum available, but
           the majority have suffered alteration in some form, by injected

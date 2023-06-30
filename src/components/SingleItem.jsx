@@ -5,9 +5,9 @@ import { addToCart } from "../redux/Shopping/shopping-actions";
 
 const SingleItem = ({ current, addToCart }) => {
   return (
-    <div>
+    <div className="product-container-singleitem" >
       <img src={current.image} alt={current.title} />
-      <div>
+      <div className="product-desc-singleitem">
         <p>{current.title}</p>
         <p>{current.description}</p>
         <p>$ {current.price}</p>

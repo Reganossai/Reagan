@@ -2,6 +2,9 @@ import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Container = styled.div`
   width: 100vw;
@@ -92,140 +95,166 @@ const Register = () => {
     }));
   };
 
-  const callBck = useCallback(async (event) => {
-    event.preventDefault();
-    try {
-      const data = {
-        email: formData.email,
-        password: formData.password,
-        name: formData.name,
-        phone: formData.phone,
-        address: formData.address,
-        country: formData.country,
-        state: formData.state,
-        city: formData.city,
-        postalCode: formData.postalCode,
-      };
+  const result = (e) => {
+    e.preventDefault();
 
-      const headers = {};
-      const config = {
-        headers,
-        maxBodyLength: Infinity,
-      };
-      console.log("data", data);
-      const res = await axios.post(
-        "https://kinkiverse.onrender.com/users/signup",
-        data,
-        config
-      );
 
-      console.log(res);
-    } catch (err) {
-      setErrorMessage(err.message);
-    } finally {
-    }
-  }, []);
+    setFormData({
+      email: "",
+      password: "",
+      name: "",
+      phone: "",
+      address: "",
+      country: "",
+      state: "",
+      city: "",
+      postalCode: "",
+    })
 
-  // const postData = async () => {
+    const body = {
+      email: formData.email,
+      password: formData.password,
+      name: formData.name,
+      phone: formData.phone,
+      address: formData.address,
+      country: formData.country,
+      state: formData.state,
+      city: formData.city,
+      postalCode: formData.postalCode,
+    };
+
+
+
+    axios({
+      method: "post",
+      url: "https://kinkiverse.onrender.com/users/signup",
+      data: body,
+    }).then((response)=>{
+      console.log(response.data);
+      // toast("wow");
+    }).catch((error)=>{
+      console.log(error);
+       toast.error("User Sign up failed due to some reason. Make sure you provided a valid email/password. This could also be as a result that the email/phone number provided is already taken");
+    })
+  };
+
+  // const callBck = useCallback(async (event) => {
+  //   event.preventDefault();
   //   try {
   //     const data = {
-  //       email: "donald@gmail.com",
-  //       password: "password",
-  //       name: "ajala tunde",
-  //       phone: "+23446256655",
-  //       address: "your address",
-  //       country: "ghana",
-  //       state: "ikoyi",
-  //       city: "lasgidi",
-  //       postalCode: 102101,
+  //       email: formData.email,
+  //       password: formData.password,
+  //       name: formData.name,
+  //       phone: formData.phone,
+  //       address: formData.address,
+  //       country: formData.country,
+  //       state: formData.state,
+  //       city: formData.city,
+  //       postalCode: formData.postalCode,
   //     };
 
-  //     const response = await axios.post(
+  //     const headers = {};
+  //     const config = {
+  //       headers,
+  //       maxBodyLength: Infinity,
+  //     };
+  //     const res = await axios.post(
   //       "https://kinkiverse.onrender.com/users/signup",
-  //       data
+  //       data,
+  //       config
   //     );
-  //     console.log(JSON.stringify(response.data));
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
-  // postData();
+  //     console.log(res);
+  //   } catch (err) {
+  //     setErrorMessage(err.message);
+  //   } finally {
+  //   }
+  // }, []);
 
   return (
-    <form onSubmit={callBck}>
-    <Container>
-      <Wrapper>
-        <Title>CREATE AN ACCOUNT</Title>
-        <Form>
-          <Input
-            placeholder="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          <Input
-            placeholder="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-          <Input
-            placeholder="name"
-            name="name"
-            value={formData.name}
-            required
-            onChange={handleChange}
-          />
-          <Input
-            placeholder="phone number"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-          />
-          <Input
-            placeholder="address"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-          />
-          <Input
-            placeholder="country"
-            name="country"
-            value={formData.country}
-            onChange={handleChange}
-          />
-          <Input
-            placeholder="state"
-            name="state"
-            value={formData.state}
-            onChange={handleChange}
-          />
-          <Input
-            placeholder="city"
-            name="city"
-            value={formData.city}
-            onChange={handleChange}
-          />
-          <Input
-            placeholder="postal code"
-            name="postalCode"
-            value={formData.postalCode}
-            onChange={handleChange}
-          />
-
-          <Agreement>
-            By creating an account, I consent to the processing of my personal
-            data in accordance with the <b>PRIVACY POLICY</b>
-          </Agreement>
-          <Button type="submit" >
-            CREATE
-          </Button>
-        </Form>
-      </Wrapper>
-    </Container>
     
-  </form>
+      <Container>
+        <Wrapper>
+          <Title>CREATE AN ACCOUNT</Title>
+          <Form>
+            <Input type="email" name="email" value={formData.email} onChange={handleChange}/>
+            <Input type="password" name="password" value={formData.password} onChange={handleChange}/>
+            <Input type="text" name="name" value={formData.name} onChange={handleChange}/>
+            <Input type="text" name="phone" value={formData.phone} onChange={handleChange}/>
+            <Input type="text" name="address" value={formData.address} onChange={handleChange}/>
+            <Input type="text" name="country" value={formData.country} onChange={handleChange}/>
+            <Input type="text" name="state" value={formData.state} onChange={handleChange}/>
+            <Input type="text" name="city" value={formData.city} onChange={handleChange}/>
+            <Input type="text" name="postalCode" value={formData.postalCode} onChange={handleChange}/>
+            {/* <Input
+              placeholder="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            <Input
+              type="password"
+              placeholder="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+            <Input
+              placeholder="name"
+              name="name"
+              value={formData.name}
+              required
+              onChange={handleChange}
+            />
+            <Input
+              placeholder="phone number"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+            <Input
+              placeholder="address"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+            />
+            <Input
+              placeholder="country"
+              name="country"
+              value={formData.country}
+              onChange={handleChange}
+            />
+            <Input
+              placeholder="state"
+              name="state"
+              value={formData.state}
+              onChange={handleChange}
+            />
+            <Input
+              placeholder="city"
+              name="city"
+              value={formData.city}
+              onChange={handleChange}
+            />
+            <Input
+              placeholder="postal code"
+              name="postalCode"
+              value={formData.postalCode}
+              onChange={handleChange}
+            /> */}
+
+            <Agreement>
+              By creating an account, I consent to the processing of my personal
+              data in accordance with the <b>PRIVACY POLICY</b>
+            </Agreement>
+            <Button type="submit" onClick={result}>CREATE</Button>
+            <Link to="/signin">
+              Already have an account? click the link to sign in
+            </Link>
+          </Form>
+        </Wrapper>
+      </Container>
+    
   );
 };
 

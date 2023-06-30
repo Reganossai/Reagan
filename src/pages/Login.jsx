@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import {mobile} from "../responsive";
+import { mobile } from "../responsive";
+import axios from "axios";
+import { Link, useHistory, } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Container = styled.div`
   width: 100vw;
@@ -20,8 +26,8 @@ const Wrapper = styled.div`
   width: 25%;
   padding: 20px;
   background-color: white;
-  border-radius:25px;
-  box-shadow:5px 8px 30px #848884;
+  border-radius: 25px;
+  box-shadow: 5px 8px 30px #848884;
   ${mobile({ width: "75%" })}
 `;
 
@@ -52,27 +58,114 @@ const Button = styled.button`
   margin-bottom: 10px;
 `;
 
-const Link = styled.a`
-  margin: 5px 0px;
-  font-size: 12px;
-  text-decoration: underline;
-  cursor: pointer;
-`;
-
 const Login = () => {
+  const [data, setData] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [message, setMessage] = useState("");
+
+  const history = useHistory();
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const result = (e) => {
+    e.preventDefault();
+    
+    setFormData({
+      email:"",
+      password:"",
+    })
+
+    const body = {
+      email: formData.email,
+      password: formData.password,
+    };
+
+    axios({
+      method: "post",
+      url: "https://kinkiverse.onrender.com/users/signin",
+      data: body,
+    })
+      .then((response) => {
+        const token = response.data.token; 
+        console.log(response.data);
+        localStorage.setItem('token', token);
+
+        
+        history.push("/products");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("User Login failed due to some reasons");
+      });
+  };
+
+  // const callBck = useCallback(async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     const data = {
+  //       email: formData.email,
+  //       password: formData.password,
+  //     };
+
+  //     const headers = {};
+  //     const config = {
+  //       headers,
+  //       maxBodyLength: Infinity,
+  //     };
+  //     const res = await axios.post(
+  //       "https://kinkiverse.onrender.com/users/signin",
+  //       data,
+  //       config
+  //     );
+
+  //   } catch (error) {
+  //     if (error.res && error.res.status === 401) {
+  //       setMessage("Incorrect email or password");
+  //     } else {
+  //       console.error("Login error:", error);
+  //     }
+  //   }
+  // }, []);
+
   return (
-    <Container>
-      <Wrapper>
-        <Title>SIGN IN</Title>
-        <Form>
-          <Input placeholder="username" />
-          <Input placeholder="password" />
-          <Button>LOGIN</Button>
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
-        </Form>
-      </Wrapper>
-    </Container>
+    <div>
+      <Container>
+        <Wrapper>
+          <Title>SIGN IN</Title>
+          <Form>
+            <Input
+              type="email"
+              placeholder="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            <Input
+              type="password"
+              placeholder="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+            <Button type="submit" onClick={result}>
+              LOGIN
+            </Button>
+            <Link to="/signup">CREATE A NEW ACCOUNT</Link>
+          </Form>
+        </Wrapper>
+      </Container>
+    </div>
   );
 };
 

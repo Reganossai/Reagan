@@ -7,16 +7,16 @@ import { loadCurrentItem, addToCart } from "../redux/Shopping/shopping-actions";
 
 const Product = ({ productData, product, addToCart, loadCurrentItem }) => {
   return (
-    <div>
+    <div className="product-container">
       <img src={productData.image} alt={productData.title} />
 
-      <div>
+      <div className="product-desc">
         <p>{productData.title}</p>
         <p>{productData.description}</p>
         <p>$ {productData.price}</p>
       </div>
 
-      <div>
+      <div className="product-btns"> 
         <Link to={`/product/${productData.id}`}>
           <button
             className="btn btn-outline-dark"
@@ -25,7 +25,7 @@ const Product = ({ productData, product, addToCart, loadCurrentItem }) => {
             View Item
           </button>
         </Link>
-        <button
+        <button id="add-to-cart-btn"
           className="btn btn-primary"
           onClick={() => addToCart(productData.id)}
         >
