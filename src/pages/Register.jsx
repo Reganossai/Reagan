@@ -72,26 +72,47 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const callBck = useCallback(async () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    name: "",
+    phone: "",
+    address: "",
+    country: "",
+    state: "",
+    city: "",
+    postalCode: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const callBck = useCallback(async (event) => {
+    event.preventDefault();
     try {
       const data = {
-        email,
-        password,
-        name ,
-        phone ,
-        address ,
-        country ,
-        state ,
-        city ,
-        postalCode 
+        email: formData.email,
+        password: formData.password,
+        name: formData.name,
+        phone: formData.phone,
+        address: formData.address,
+        country: formData.country,
+        state: formData.state,
+        city: formData.city,
+        postalCode: formData.postalCode,
       };
-      
+
       const headers = {};
       const config = {
         headers,
         maxBodyLength: Infinity,
       };
-      console.log("data",data);
+      console.log("data", data);
       const res = await axios.post(
         "https://kinkiverse.onrender.com/users/signup",
         data,
@@ -104,7 +125,6 @@ const Register = () => {
     } finally {
     }
   }, []);
-
 
   // const postData = async () => {
   //   try {
@@ -133,85 +153,79 @@ const Register = () => {
   // postData();
 
   return (
+    <form onSubmit={callBck}>
     <Container>
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
         <Form>
           <Input
             placeholder="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
           />
           <Input
             placeholder="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
           />
           <Input
             placeholder="name"
-            value={name}
+            name="name"
+            value={formData.name}
             required
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
+            onChange={handleChange}
           />
           <Input
             placeholder="phone number"
-            value={phone}
-            onChange={(e) => {
-              setPhone(e.target.value);
-            }}
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
           />
           <Input
             placeholder="address"
-            value={address}
-            onChange={(e) => {
-              setAddress(e.target.value);
-            }}
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
           />
           <Input
             placeholder="country"
-            value={country}
-            onChange={(e) => {
-              setCountry(e.target.value);
-            }}
+            name="country"
+            value={formData.country}
+            onChange={handleChange}
           />
           <Input
             placeholder="state"
-            value={state}
-            onChange={(e) => {
-              setState(e.target.value);
-            }}
+            name="state"
+            value={formData.state}
+            onChange={handleChange}
           />
           <Input
             placeholder="city"
-            value={city}
-            onChange={(e) => {
-              setCity(e.target.value);
-            }}
+            name="city"
+            value={formData.city}
+            onChange={handleChange}
           />
           <Input
             placeholder="postal code"
-            value={postalCode}
-            onChange={(e) => {
-              setPostalCode(e.target.value);
-            }}
+            name="postalCode"
+            value={formData.postalCode}
+            onChange={handleChange}
           />
 
           <Agreement>
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
           </Agreement>
-          <Button type="submit" onClick={callBck}>
+          <Button type="submit" >
             CREATE
           </Button>
         </Form>
       </Wrapper>
     </Container>
+    
+  </form>
   );
 };
 
