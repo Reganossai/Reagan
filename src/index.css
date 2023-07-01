@@ -98,3 +98,37 @@ a{
 .product-btns{
     padding: 30px;
 }
+
+.inp{
+    display: flex;
+    flex-direction: column;
+
+}
+
+::placeholder{
+    color: gray;
+    font-size: 13px;
+    padding: 10px;
+}
+
+
+@media only screen and (max-width: 800px) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

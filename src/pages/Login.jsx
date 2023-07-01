@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import axios from "axios";
-import { Link, useHistory, } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Container = styled.div`
   width: 100vw;
@@ -80,11 +79,11 @@ const Login = () => {
 
   const result = (e) => {
     e.preventDefault();
-    
+
     setFormData({
-      email:"",
-      password:"",
-    })
+      email: "",
+      password: "",
+    });
 
     const body = {
       email: formData.email,
@@ -97,11 +96,10 @@ const Login = () => {
       data: body,
     })
       .then((response) => {
-        const token = response.data.token; 
+        const token = response.data.token;
         console.log(response.data);
-        localStorage.setItem('token', token);
+        localStorage.setItem("token", token);
 
-        
         history.push("/products");
       })
       .catch((error) => {
@@ -144,20 +142,26 @@ const Login = () => {
         <Wrapper>
           <Title>SIGN IN</Title>
           <Form>
-            <Input
-              type="email"
-              placeholder="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-            <Input
-              type="password"
-              placeholder="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-            />
+            <div className="inp">
+              <label for="email">Email</label>
+              <Input
+                type="email"
+                placeholder="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="inp">
+              <label for="password">Password</label>
+              <Input
+                type="password"
+                placeholder="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+            </div>
             <Button type="submit" onClick={result}>
               LOGIN
             </Button>
