@@ -14,11 +14,11 @@ const Product = ({ productData, product, addToCart, loadCurrentItem }) => {
         <p>{productData.title}</p>
         <p>{productData.description}</p>
         <p>$ {productData.price}</p>
-      </div>
 
-      <div className="product-btns"> 
+        <div className="product-btns"> 
         <Link to={`/product/${productData.id}`}>
           <button
+          id="prod-but"
             className="btn btn-outline-dark"
             onClick={() => loadCurrentItem(productData)}
           >
@@ -32,6 +32,9 @@ const Product = ({ productData, product, addToCart, loadCurrentItem }) => {
           Add To Cart
         </button>
       </div>
+      </div>
+
+     
     </div>
   );
 };

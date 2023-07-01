@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faBars,faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.div`
   height: 60px;
@@ -57,7 +57,7 @@ const Right = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   ${mobile({ flex: 2, justifyContent: "center" })}
 `;
 
@@ -65,11 +65,16 @@ const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
-  ${mobile({ fontSize: "12px", marginLeft: "10px" })}
+  width: 60px;
+  ${mobile({ fontSize: "12px" })}
 `;
 
 const Navbar = ({ cart }) => {
   const [cartCount, setCartCount] = useState(0);
+  const [nav, setNav] = useState(false);
+  const handleNav = () => {
+    setNav(!nav);
+  };
 
   useEffect(() => {
     let count = 0;
@@ -80,37 +85,96 @@ const Navbar = ({ cart }) => {
     setCartCount(count);
   }, [cart, cartCount]);
 
+  nav
+  ? (document.body.style.overflow = "hidden")
+  : (document.body.style.overflow = "auto");
+
   return (
-    <Container>
-      <Wrapper>
-        <Left>
-        </Left>
-        <Center>
-        <h1 className="logo">Bawdy</h1>
-        </Center>
-        <Right>
-             
-        <MenuItem>
+    <nav className="navbar navbar-expand-lg">
+      <div className="logo-div">
+        <Link to="/">
+          <h1 className="logo">Bawdy</h1>
+        </Link>
+      </div>
+      <div id="navbarSupportedContent">
+        <ul>
+          <li>
+            <Link to="/signup" className="menu-links">
+              REGISTER
+            </Link>
+          </li>
+          <li className="nav-link">
+            <Link to="/signin" className="menu-links">
+              SIGN IN
+            </Link>
+          </li>
 
-            <Link to="/products" className="menu-links">PRODUCTS</Link>
-          </MenuItem>
+          <li className="nav-link">
+            <Link to="/products" className="menu-links">
+              PRODUCTS
+            </Link>
+          </li>
 
-          <MenuItem>
-            <Link to="/signup"  className="menu-links">REGISTER</Link>
-          </MenuItem>
+          <li className="nav-link">
+            <Link to="/cart" className="menu-links">
+              <div>
+                <span>
+                  <FontAwesomeIcon
+                    icon={faCartShopping}
+                    className="navbar-carticon"
+                  />
+                </span>
+                Cart ({cartCount})
+              </div>
+            </Link>
+          </li>
+          </ul>
+      </div>
+      {nav ? (
+        <div id="navbarSupportedContentMobile">
+          <ul>
+            <li>
+              <Link to="/signup" className="menu-links">
+                REGISTER
+              </Link>
+            </li>
+            <li className="nav-link">
+              <Link to="/signin" className="menu-links">
+                SIGN IN
+              </Link>
+            </li>
 
-          <MenuItem>
-            <Link to="/signin"  className="menu-links">SIGN IN</Link>
-          </MenuItem>
+            <li className="nav-link">
+              <Link to="/products" className="menu-links">
+                PRODUCTS
+              </Link>
+            </li>
 
-          <MenuItem>
-          <Link to="/cart"  className="menu-links">
-            <div><span><FontAwesomeIcon icon={faCartShopping} className="navbar-carticon"/> </span> Cart ({cartCount})</div>
-          </Link>
-          </MenuItem>
-        </Right>
-      </Wrapper>
-    </Container>
+            <li className="nav-link">
+              <Link to="/cart" className="menu-links">
+                <div>
+                  <span>
+                    <FontAwesomeIcon
+                      icon={faCartShopping}
+                      className="navbar-carticon"
+                    />
+                  </span>
+                  Cart ({cartCount})
+                </div>
+              </Link>
+            </li>
+            </ul>
+        </div>
+      ) : null}
+
+      <div onClick={handleNav} className="zaracho">
+        {nav ? (
+          <FontAwesomeIcon icon={faXmark} />
+        ) : (
+          <FontAwesomeIcon icon={faBars} />
+        )}
+      </div>
+    </nav>
   );
 };
 

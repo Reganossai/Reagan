@@ -49,24 +49,6 @@ const Products = ({products}) => {
     {products.map(prod => (
       <Product key={prod.id} productData={prod}/>
     ))}
-    {/* <h1 className="products-header">Products</h1>
-    {data.map((item) => (
-      <div className="card" key={item.id}>
-          <img src={item.image} className="products-img" alt="..." />
-                  <div className="card-body">
-          <h5 class="card-title">{item.title}</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <button className="btn btn-outline">
-          <Link to={`/products/${item.id}`}>
-            Show Product details
-          </Link>
-          </button>
-        </div>
-      </div>
-    ))} */}
   </div>
 }
   </div>  
