@@ -12,31 +12,29 @@ import Products from "./components/Products";
 import SingleItem from "./components/SingleItem";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import toast, { Toaster } from "react-hot-toast";
 
 function App({ current }) {
-  
   return (
     <>
-      <ToastContainer />
       
-    <Router>
-      <div className="app">
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/cart" component={Cart} />
-          <Route path="/products" component={Products} />
-          <Route path="/signin" component={Login} />
-          <Route path="/signup" component={Register} />
-          {!current ? (
-            <Redirect to="/" />
-          ) : (
-            <Route exact path="/product/:id" component={SingleItem} />
-          )}
-        </Switch>
-      </div>
-    </Router>
+
+      <Router>
+        <div className="app">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/cart" component={Cart} />
+            <Route path="/products" component={Products} />
+            <Route path="/signin" component={Login} />
+            <Route path="/signup" component={Register} />
+            {!current ? (
+              <Redirect to="/" />
+            ) : (
+              <Route exact path="/product/:id" component={SingleItem} />
+            )}
+          </Switch>
+        </div>
+      </Router>
     </>
   );
 }

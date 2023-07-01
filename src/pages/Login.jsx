@@ -61,6 +61,7 @@ const Login = () => {
   const [data, setData] = useState([]);
   const [users, setUsers] = useState([]);
   const [message, setMessage] = useState("");
+  const [signinResponse, setSigninResponse] = useState([]);
 
   const history = useHistory();
 
@@ -98,8 +99,7 @@ const Login = () => {
       .then((response) => {
         const token = response.data.token;
         console.log(response.data);
-        localStorage.setItem("token", token);
-
+        setSigninResponse(response.data);
         history.push("/products");
       })
       .catch((error) => {
@@ -108,33 +108,6 @@ const Login = () => {
       });
   };
 
-  // const callBck = useCallback(async (event) => {
-  //   event.preventDefault();
-  //   try {
-  //     const data = {
-  //       email: formData.email,
-  //       password: formData.password,
-  //     };
-
-  //     const headers = {};
-  //     const config = {
-  //       headers,
-  //       maxBodyLength: Infinity,
-  //     };
-  //     const res = await axios.post(
-  //       "https://kinkiverse.onrender.com/users/signin",
-  //       data,
-  //       config
-  //     );
-
-  //   } catch (error) {
-  //     if (error.res && error.res.status === 401) {
-  //       setMessage("Incorrect email or password");
-  //     } else {
-  //       console.error("Login error:", error);
-  //     }
-  //   }
-  // }, []);
 
   return (
     <div>
