@@ -19,14 +19,16 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${mobile({ margin:"150px 0px 0px 0px" })}
+  ${mobile({ margin:"100px 0px 0px 0px" })}
 `;
 
 const Wrapper = styled.div`
-  width: 40%;
+  width: 60%;
   padding: 20px;
   background-color: white;
   border-radius: 25px;
+  margin: 10px 0px
+
   box-shadow: 5px 8px 30px #848884;
   ${mobile({ width: "75%" })}
 `;
@@ -50,13 +52,18 @@ const Input = styled.input`
 
 const Agreement = styled.span`
   font-size: 12px;
-  margin: 20px 0px;
+  margin: 5px 0px;
+`;
+
+const Already = styled.p`
+  font-size: 12px;
+  margin: 5px 0px;
 `;
 
 const Button = styled.button`
-  width: 40%;
+  width: 80px;
   border: none;
-  padding: 15px 20px;
+  padding:10px 10px;
   background-color: teal;
   color: white;
   cursor: pointer;
@@ -130,7 +137,7 @@ const Register = () => {
     })
       .then((response) => {
         console.log(response.data);
-        // toast("wow");
+      
       })
       .catch((error) => {
         console.log(error);
@@ -139,40 +146,6 @@ const Register = () => {
         );
       });
   };
-
-  // const callBck = useCallback(async (event) => {
-  //   event.preventDefault();
-  //   try {
-  //     const data = {
-  //       email: formData.email,
-  //       password: formData.password,
-  //       name: formData.name,
-  //       phone: formData.phone,
-  //       address: formData.address,
-  //       country: formData.country,
-  //       state: formData.state,
-  //       city: formData.city,
-  //       postalCode: formData.postalCode,
-  //     };
-
-  //     const headers = {};
-  //     const config = {
-  //       headers,
-  //       maxBodyLength: Infinity,
-  //     };
-  //     const res = await axios.post(
-  //       "https://kinkiverse.onrender.com/users/signup",
-  //       data,
-  //       config
-  //     );
-
-  //     console.log(res);
-  //   } catch (err) {
-  //     setErrorMessage(err.message);
-  //   } finally {
-  //   }
-  // }, []);
-
   return (
     <Container>
       <Wrapper>
@@ -271,63 +244,7 @@ const Register = () => {
             />
           </div>
 
-          {/* <Input
-              placeholder="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-            <Input
-              type="password"
-              placeholder="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-            />
-            <Input
-              placeholder="name"
-              name="name"
-              value={formData.name}
-              required
-              onChange={handleChange}
-            />
-            <Input
-              placeholder="phone number"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-            />
-            <Input
-              placeholder="address"
-              name="address"
-              value={formData.address}
-              onChange={handleChange}
-            />
-            <Input
-              placeholder="country"
-              name="country"
-              value={formData.country}
-              onChange={handleChange}
-            />
-            <Input
-              placeholder="state"
-              name="state"
-              value={formData.state}
-              onChange={handleChange}
-            />
-            <Input
-              placeholder="city"
-              name="city"
-              value={formData.city}
-              onChange={handleChange}
-            />
-            <Input
-              placeholder="postal code"
-              name="postalCode"
-              value={formData.postalCode}
-              onChange={handleChange}
-            /> */}
-
+         
           <Agreement>
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
@@ -335,9 +252,11 @@ const Register = () => {
           <Button type="submit" onClick={result}>
             CREATE
           </Button>
+          <Already>
           <Link to="/signin">
             Already have an account? click the link to sign in
           </Link>
+          </Already>
         </Form>
       </Wrapper>
     </Container>

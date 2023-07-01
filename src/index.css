@@ -143,10 +143,10 @@ a {
 
 
 @media only screen and (max-width: 800px) {
-
-    * {
-        overflow-x: hidden;
+    label{
+        font-size: 13px;
     }
+
 
     .zaracho {
         display: block;
@@ -176,7 +176,7 @@ a {
         height: 100%;
         background-color:whitesmoke;
         z-index: 10;
-        overflow-y: hidden;
+       
 
     }
 
