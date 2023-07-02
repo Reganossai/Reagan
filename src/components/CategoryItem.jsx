@@ -6,13 +6,14 @@ const Container = styled.div`
   margin: 3px;
   height: 70vh;
   position: relative;
+  ${mobile({ height: "10vh" })}
 `;
 
 const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  ${mobile({ height: "20vh" })}
+  ${mobile({ height: "10vh" })}
 
 `;
 
@@ -26,11 +27,14 @@ const Info = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  ${mobile({display:"hidden"})}
 `;
 
 const Title = styled.h1`
     color:white;
     margin-bottom: 20px;
+    ${mobile({ fontSize: "15px", })}
+    
 `;
 
 const Button = styled.button`
@@ -48,7 +52,6 @@ const CategoryItem = ({ item }) => {
       <Image src={item.img} />
       <Info>
         <Title>{item.title}</Title>
-        <Button>SHOP NOW</Button>
       </Info>
     </Container>
   );

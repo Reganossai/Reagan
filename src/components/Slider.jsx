@@ -88,7 +88,7 @@ const Button = styled.button`
   font-size: 20px;
   background-color: transparent;
   cursor: pointer;
-  color: white;
+  
 `;
 
 const Slider = () => {
@@ -115,7 +115,7 @@ const Slider = () => {
             <InfoContainer>
               <Title>{item.title}</Title>
               <Desc>{item.desc}</Desc>
-              <Button><Link to="/products">SHOP NOW AT BAWDY</Link></Button>
+              <Button className="shop-now"><Link to="/products">SHOP NOW AT BAWDY</Link></Button>
             </InfoContainer>
           </Slide>
         ))}

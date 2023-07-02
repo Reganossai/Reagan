@@ -6,6 +6,7 @@ import Product from "./Product";
 import Loading from "./Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+
 const Products = ({ products }) => {
   const [Data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -50,6 +51,7 @@ const Products = ({ products }) => {
           </div>
         )}
       </div>
+     
     </div>
   );
 };

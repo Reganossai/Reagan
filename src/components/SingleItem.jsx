@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-const SingleItem = ({ current, addToCart }) => {
+const SingleItem = ({ current, addToCart,cartCount}) => {
   return (
     <div>
       <Navbar/> 
@@ -19,6 +19,7 @@ const SingleItem = ({ current, addToCart }) => {
         <p>$ {current.price}</p>
 
         <button className="btn btn-danger" onClick={() => addToCart(current.id)}>Add To Cart</button>
+        <button id="vvv" className="btn btn-outline-dark"><Link to="/cart">View Cart</Link></button>
       </div>
     </div>
     </div>

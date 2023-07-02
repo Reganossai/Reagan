@@ -2,9 +2,10 @@ import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 
 const Container = styled.div`
   width: 100vw;
@@ -19,7 +20,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${mobile({ margin:"100px 0px 0px 0px" })}
+  ${mobile({ margin: "100px 0px 0px 0px" })}
 `;
 
 const Wrapper = styled.div`
@@ -47,23 +48,24 @@ const Input = styled.input`
   flex: 1;
   min-width: 40%;
   margin: 5px 10px 10px 0px;
-  padding: 0px;
+  padding: 10px;
+  border-radius: 5px;
 `;
 
 const Agreement = styled.span`
-  font-size: 12px;
+  font-size: 15px;
   margin: 5px 0px;
 `;
 
 const Already = styled.p`
-  font-size: 12px;
+  font-size: 15px;
   margin: 5px 0px;
 `;
 
 const Button = styled.button`
   width: 80px;
   border: none;
-  padding:10px 10px;
+  padding: 10px 10px;
   background-color: teal;
   color: white;
   cursor: pointer;
@@ -82,6 +84,9 @@ const Register = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  
+  const history = useHistory();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -105,7 +110,7 @@ const Register = () => {
 
   const result = (e) => {
     e.preventDefault();
-
+    setLoading(true);
     setFormData({
       email: "",
       password: "",
@@ -136,130 +141,154 @@ const Register = () => {
       data: body,
     })
       .then((response) => {
-        console.log(response.data);
-      
+        if (response.data.success == true) {
+          console.log(response.data);
+          history.push("/registrationsuccess");
+        } else {
+        }
       })
       .catch((error) => {
         console.log(error);
         toast.error(
           "User Sign up failed due to some reason. Make sure you provided a valid email/password. This could also be as a result that the email/phone number provided is already taken"
         );
+        setLoading(false);
       });
   };
+
+  if (loading) {
+    return (
+      <h1 className="login-loading">
+        Please wait while your input is being validated
+      </h1>
+    );
+  }
+
   return (
-    <Container>
-      <Wrapper>
-        <Title>CREATE AN ACCOUNT</Title>
-        <Form>
+    <div className="register-div">
+      <div className="bg"></div>
+      <div className="bgg">
+        <h1>CREATE AN ACCOUNT</h1>
+        <form onSubmit={result} className="formis">
           <div className="inp">
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <Input
               placeholder="ossaireagano@gmail.com"
               type="email"
               name="email"
+              required
               value={formData.email}
               onChange={handleChange}
             />
           </div>
 
           <div className="inp">
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <Input
               type="password"
               name="password"
+              required
               value={formData.password}
               onChange={handleChange}
             />
           </div>
 
           <div className="inp">
-            <label for="name">Name</label>
+            <label htmlFor="name">Name</label>
             <Input
               type="text"
               name="name"
+              required
               value={formData.name}
               onChange={handleChange}
             />
           </div>
 
           <div className="inp">
-            <label for="phone">Phone number</label>
+            <label htmlFor="phone">Phone number</label>
             <Input
               placeholder="0808315163"
               type="text"
               name="phone"
+              required
               value={formData.phone}
               onChange={handleChange}
             />
           </div>
 
           <div className="inp">
-            <label for="address">Address</label>
+            <label htmlFor="address">Address</label>
             <Input
               type="text"
               name="address"
+              required
               value={formData.address}
               onChange={handleChange}
             />
           </div>
 
           <div className="inp">
-            <label for="country">Country</label>
+            <label htmlFor="country">Country</label>
             <Input
               type="text"
               name="country"
+              required
               value={formData.country}
               onChange={handleChange}
             />
           </div>
 
           <div className="inp">
-            <label for="state">State</label>
+            <label htmlFor="state">State</label>
             <Input
               type="text"
               name="state"
+              required
               value={formData.state}
               onChange={handleChange}
             />
           </div>
 
           <div className="inp">
-            <label for="city">City</label>
+            <label htmlFor="city">City</label>
             <Input
               type="text"
               name="city"
+              required
               value={formData.city}
               onChange={handleChange}
             />
           </div>
 
           <div className="inp">
-            <label for="postalCode">Postal Code</label>
+            <label htmlFor="postalCode">Postal Code</label>
             <Input
               placeholder="100001"
               type="text"
               name="postalCode"
+              required
               value={formData.postalCode}
               onChange={handleChange}
             />
           </div>
 
-         
           <Agreement>
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
           </Agreement>
-          <Button type="submit" onClick={result}>
-            CREATE
-          </Button>
-          <Already>
-          <Link to="/signin">
-            Already have an account? click the link to sign in
-          </Link>
-          </Already>
-        </Form>
-      </Wrapper>
-    </Container>
+
+          <div id="create-btn">
+            <Button type="submit" className="btn btn-primary">
+              CREATE
+            </Button>
+
+            <Link to="/signin">
+              Already have an account? click the link to sign in
+            </Link>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 

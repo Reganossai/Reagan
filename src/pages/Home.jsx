@@ -13,9 +13,10 @@ const Home = () => {
     <div className="home">
       <Announcement />
       <Navbar />
-      <Slider />
+      <hr className="hir"/>
       <Categories />
       <Products/>
+      <Footer/>
       {/* <Newsletter />
       <Deals/>
       <Footer /> */}

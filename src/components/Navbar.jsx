@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faBars,faXmark } from "@fortawesome/free-solid-svg-icons";
+import kinkiverse from "../assets/kinkiverselogo.jpeg"
 
 const Logo = styled.h1`
   font-weight: bold;
@@ -36,9 +37,9 @@ const Navbar = ({ cart }) => {
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="logo-div">
-        <NavLink  to="/">
-          <h1 className="logo">Bawdy</h1>
-        </NavLink>
+        <Link  to="/">
+          <img src={kinkiverse} alt="kink"/>
+        </Link>
       </div>
       <div id="navbarSupportedContent">
         <ul>
@@ -79,6 +80,7 @@ const Navbar = ({ cart }) => {
           </li>
           </ul>
       </div>
+     
       {nav ? (
         <div id="navbarSupportedContentMobile">
           <ul>

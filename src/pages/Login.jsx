@@ -62,6 +62,7 @@ const Login = () => {
   const [users, setUsers] = useState([]);
   const [message, setMessage] = useState("");
   const [signinResponse, setSigninResponse] = useState([]);
+  const [loading,setLoading] = useState(false);
 
   const history = useHistory();
 
@@ -80,7 +81,7 @@ const Login = () => {
 
   const result = (e) => {
     e.preventDefault();
-
+    setLoading(true);
     setFormData({
       email: "",
       password: "",
@@ -90,23 +91,38 @@ const Login = () => {
       email: formData.email,
       password: formData.password,
     };
-
+  
     axios({
       method: "post",
       url: "https://kinkiverse.onrender.com/users/signin",
       data: body,
     })
       .then((response) => {
-        const token = response.data.token;
-        console.log(response.data);
-        setSigninResponse(response.data);
-        history.push("/products");
+        
+        if(response.data.success == true){
+          console.log(response.data);
+        history.push("/prod");
+        } else{
+         
+
+        // const token = response.data.token;
+        }
+        // setSigninResponse(response.data);
+        // setLoading(false);
+      
       })
       .catch((error) => {
         console.log(error);
         toast.error("User Login failed due to some reasons");
-      });
+        setLoading(false);
+      })
+      
+      
   };
+
+  if(loading){
+    return<h1 className="login-loading">Please wait while your login credentials are being validated</h1>
+  }
 
 
   return (
@@ -114,28 +130,30 @@ const Login = () => {
       <Container>
         <Wrapper>
           <Title>SIGN IN</Title>
-          <Form>
+          <Form onSubmit={result}>
             <div className="inp">
-              <label for="email">Email</label>
+              <label htmlFor="email">Email</label>
               <Input
                 type="email"
                 placeholder="email"
                 name="email"
+                required
                 value={formData.email}
                 onChange={handleChange}
               />
             </div>
             <div className="inp">
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
               <Input
                 type="password"
                 placeholder="password"
                 name="password"
+                required
                 value={formData.password}
                 onChange={handleChange}
               />
             </div>
-            <Button type="submit" onClick={result}>
+            <Button type="submit" >
               LOGIN
             </Button>
             <Link to="/signup">CREATE A NEW ACCOUNT</Link>

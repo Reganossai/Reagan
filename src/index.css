@@ -8,6 +8,10 @@ a {
     color: black;
 }
 
+button {
+    cursor: pointer;
+}
+
 .products-header {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
@@ -18,7 +22,8 @@ a {
 
 .products-div {
     display: flex;
-    width: 1500px;
+    width: 1330px;
+    height: fit-content;
 
 }
 
@@ -26,7 +31,7 @@ a {
     display: flex;
     flex-wrap: wrap;
     width: 1400px;
-    height: 1000px;
+    height: fit-content;
     padding: 15px;
 }
 
@@ -35,17 +40,16 @@ a {
     height: 200px;
     border: none;
     border-radius: 15px;
-    margin: 30px 0px 30px 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 100px 20px 100px 40px;
-   
+
 
 
 }
 
-.product-container p{
+.product-container p {
     margin-left: 50px;
     color: red;
 
@@ -57,12 +61,12 @@ a {
 
 }
 
-.product-container-singleitem h1{
+.product-container-singleitem h1 {
     font-size: 15px;
 
 }
 
-.product-container-singleitem a{
+.product-container-singleitem a {
     color: black;
     text-decoration: none;
 
@@ -85,7 +89,7 @@ a {
 
 .product-desc-singleitem p {
     font-size: 15px;
-    color: red;
+    color: black;
 
 }
 
@@ -121,7 +125,8 @@ a {
 }
 
 .navbar-carticon {
-    color: darkblue;
+    color: #E6E6FA;
+    margin-right: 5px;
 }
 
 #menu-links {
@@ -163,15 +168,25 @@ a {
 
 .navbar {
     width: 100%;
-    height: 50px;
+    height: 150px;
     display: flex;
 
 
 }
 
+.hir {
+    width: 1050px;
+    margin: -10px 0px 0px 150px;
+}
+
+.hira {
+    width: 1000px;
+    margin: 10px 0px 0px 165px;
+}
+
 
 #navbarSupportedContent {
-    margin: 5px 0px 0px 600px;
+    margin: 5px 0px 0px 450px;
 
 }
 
@@ -195,50 +210,267 @@ a {
     margin: 30px 0px 30px 40px;
 }
 
-.single-item-fontawesome{
+.single-item-fontawesome {
     font-weight: lighter;
     font-size: 10px;
     margin-right: 5px;
 }
 
-.summ{
+.summ {
     font-family: 'Courier New', Courier, monospace;
     font-size: larger;
 }
 
-#minussign{
+#minussign {
     margin: 20px 20px 20px 20px;
 }
 
-input[type=number]{
+input[type=number] {
     padding: 3px 3px 3px 3px;
     margin-left: 5px;
 }
 
 .active {
-    border-bottom: 10px solid black;
-    
-    
-  }
+    border-bottom: 3px solid black;
 
-  
+
+}
+
+#vvv {
+    margin-left: 10px;
+}
+
+.ov {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+
+.kirk {
+    display: flex;
+
+}
+
+
+.first-conti {
+    display: none;
+    width: 100%;
+    height: 200px;
+    font-family: cursive;
+    color: black;
+    padding: 20px 10px;
+    justify-content: space-between;
+    background-color: black;
+}
+
+.first-conti h1 {
+    font-size: 25px;
+    color: wheat;
+
+}
+
+
+.hell {
+    width: 300px;
+}
+
+.hell img {
+    width: 100px;
+    margin: 5px 0px 0px 100px;
+    border-radius: 10px;
+}
+
+.ig {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+
+.ig-div {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 20px 0px 500px;
+}
+
+.ig-div a {
+    text-decoration: none;
+}
+
+.ig-div h5 {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 1px 0px 0px 10px;
+}
+
+.whatsapp {
+
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+.whatsapp-div {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 20px 0px 0px;
+}
+
+.whatsapp-div a {
+    text-decoration: none;
+}
+
+.whatsapp-div h5 {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 1px 0px 0px 10px;
+}
+
+.linkedin {
+
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+.linkedin-div {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 80px 0px 0px;
+
+}
+
+.linkedin-div a {
+    text-decoration: none;
+}
+
+.linkedin-div h5 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    margin: 1px 0px 0px 10px;
+    ;
+}
+
+.second-footer-desktop {
+    display: none;
+}
+
+.shop-now a {
+    color: white;
+    text-decoration: none;
+
+}
+
+.login-loading {
+    text-align: center;
+    margin-top: 50%;
+    height: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+
+}
+
+.bg {
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background: url("https://images.unsplash.com/photo-1598971861713-54ad16a7e72e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHNob3BwaW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60");
+    background-size: cover;
+    background-position: center;
+    object-fit: fill;
+    opacity: 0.6;
+
+
+
+}
+
+
+.bgg {
+    position: relative;
+    z-index: 1;
+    padding: 80px 0px 0px 30px;
+}
+
+.bgg h1 {
+    text-align: center;
+}
+
+.register-div {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: fit-content;
+
+}
+
+.logo-div img {
+    width: 120px;
+    height: 100px;
+    border-radius: 15px;
+    margin: 0px 0px 0px 120px;
+}
+
+
+.formis {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: fit-content;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
+
+
+}
+
+.formis .inp {
+    width: 400px;
+
+}
+
+#create-btn {
+    margin: 50px 1000px 0px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
 
 
 
 @media only screen and (max-width: 800px) {
 
-    .home{
+    .navbar {
+        background-color: #483248;
+
+    }
+
+
+    .home {
         width: 100%;
         height: 100vh;
         overflow-x: hidden;
     }
 
-    .prod{
+    .hir {
+        display: none;
+    }
+
+    .hira {
+        display: none;
+    }
+
+    .prod {
         overflow-x: hidden;
     }
 
 
-    
+
     label {
         font-size: 13px;
     }
@@ -248,11 +480,15 @@ input[type=number]{
         display: block;
         margin-right: 35px;
         z-index: 99;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
 
     }
 
     #menu-links {
         font-size: 15px;
+        color: white;
     }
 
     #navbarSupportedContent {
@@ -270,7 +506,7 @@ input[type=number]{
         margin: 0 auto;
         width: 100%;
         height: 100%;
-        background-color: whitesmoke;
+        background-color: #483248;
         z-index: 10;
 
 
@@ -293,26 +529,25 @@ input[type=number]{
         text-align: center;
         font-family: Arial, Helvetica, sans-serif;
         font-weight: lighter;
-        margin:50px 0px 50px 0px;
-    
+        margin: 50px 0px 50px 0px;
+
     }
-    
+
 
 
     .product-container {
         display: flex;
         padding: 0px;
         width: 390px;
-        height: 400px;
+        height: fit-content;
         margin-bottom: 200px;
-        margin-left: 0px;
+        margin-left: 2px;
         margin-right: 10px;
-        
-
+        margin-top: 20px;
     }
 
-    .product-container p{
-        color: red;
+    .product-container p {
+        color: black;
         margin-left: 35px;
     }
 
@@ -334,16 +569,21 @@ input[type=number]{
         padding: 0px;
     }
 
-    
+
     #add-to-cart-btn {
         width: 90px;
+    }
+
+    .products-div {
+        height: fit-content;
     }
 
     .odu {
         display: flex;
         flex-wrap: wrap;
         width: 390px;
-        height: 400px;
+        height: fit-content;
+        margin-left: -15px;
 
     }
 
@@ -352,24 +592,27 @@ input[type=number]{
         height: 80px;
     }
 
-    
+
     .product-container img {
         width: 150px;
         height: 150px;
 
     }
 
-    .pro{
+    .pro {
         height: 1000px;
     }
 
     #prod-but {
-        width: 70px;
+        width: 80px;
+        height: 40px;
         margin-left: 35px;
-        margin-bottom: 15px;
+        margin-bottom: 8px;
+        padding: 0px;
+        font-size: 15px;
     }
 
-    .product-container-singleitem{
+    .product-container-singleitem {
         padding: 20px;
 
     }
@@ -377,7 +620,128 @@ input[type=number]{
     .product-desc-singleitem {
         padding: 0px;
     }
-    
+
+
+    .kirk {
+        display: flex;
+        flex-direction: row;
+        margin: 0px 0px 0px 55px;
+    }
+
+
+    .first-conti {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-height: 400px;
+        height: 400px;
+        margin: 1200px 0px 0px 0px;
+        padding-bottom: 40px;
+        font-family: sans-serif;
+        background-color: black;
+
+    }
+
+
+
+    .hell {
+        text-align: center;
+        width: 350px;
+        margin: 5px 0px;
+    }
+
+    .hell img {
+        width: 110px;
+        height: 100px;
+        border-radius: 15px;
+        margin: 0px 0px 0px 0px;
+    }
+
+    .ig {
+        width: 25px;
+        height: 25px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+
+    }
+
+    .whatsapp {
+
+        width: 25px;
+        height: 25px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+
+    }
+
+    .linkedin {
+
+        width: 25px;
+        height: 25px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+
+    .ig-div {
+        display: flex;
+        flex-direction: row;
+        margin: 10px 10px 0px 20px;
+    }
+
+    .ig-div h5 {
+        font-size: 15px;
+    }
+
+
+    .whatsapp-div h5 {
+        font-size: 15px;
+    }
+
+    .linkedin-div h5 {
+        font-size: 15px;
+    }
+
+    .whatsapp-div {
+        margin: 10px 10px 0px 0px;
+
+    }
+
+    .linkedin-div {
+        display: flex;
+        flex-direction: row;
+        margin: 10px 800px 0px 0px;
+
+    }
+
+    #create-btn a {
+        width: 300px;
+    }
+
+
+    .formis .inp {
+        width: 300px;
+
+    }
+
+    .succ {
+        text-align: center;
+        margin-top: 50%;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+
+    .logo-div img {
+        width: 110px;
+        height: 100px;
+        border-radius: 15px;
+        margin: 0px 0px 0px 50px;
+    }
+
+
+
+
+
+
 
 
 
