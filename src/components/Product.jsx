@@ -8,14 +8,23 @@ import { loadCurrentItem, addToCart } from "../redux/Shopping/shopping-actions";
 const Product = ({ productData, product, addToCart, loadCurrentItem }) => {
   return (
     <div className="product-container">
-      <img src={productData.image} alt={productData.title} />
+      <div>
+       <img src={productData.image} alt={productData.title} />
+       </div>
+     
+       <Link to={`/product/${productData.id}`}>
+          <button
+          id="prod-but"
+            className="btn btn-outline-dark"
+            onClick={() => loadCurrentItem(productData)}
+          >
+            View Item
+          </button>
+        </Link>
+      
+        <p className="peter">$ {productData.price}</p>
 
-      <div className="product-desc">
-        <p>{productData.title}</p>
-        <p>{productData.description}</p>
-        <p>$ {productData.price}</p>
-
-        <div className="product-btns"> 
+        {/* <div className="product-btns"> 
         <Link to={`/product/${productData.id}`}>
           <button
           id="prod-but"
@@ -31,8 +40,7 @@ const Product = ({ productData, product, addToCart, loadCurrentItem }) => {
         >
           Add To Cart
         </button>
-      </div>
-      </div>
+      </div> */}
 
      
     </div>

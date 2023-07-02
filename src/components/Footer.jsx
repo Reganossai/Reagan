@@ -12,7 +12,7 @@ import { mobile } from "../responsive";
 
 const Container = styled.div`
   display: flex;
-  ${mobile({ flexDirection: "column" })}
+  ${mobile({ display: "none"})}
 `;
 
 const Left = styled.div`

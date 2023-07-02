@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-
 import { connect } from "react-redux";
 import {
   adjustItemQty,
   removeFromCart,
 } from "../../redux/Shopping/shopping-actions";
+import Navbar from "../Navbar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const CartItem = ({ item, adjustQty, removeFromCart }) => {
   const [input, setInput] = useState(item.qty);
@@ -16,11 +18,12 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
 
   return (
     <div>
+    <div className="product-container-singleitem">
       <img
         src={item.image}
         alt={item.title}
       />
-      <div>
+      <div className="product-desc-singleitem">
         <p>{item.title}</p>
         <p >{item.description}</p>
         <p>$ {item.price}</p>
@@ -39,14 +42,13 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
         </div>
         <button
           onClick={() => removeFromCart(item.id)}
-          
+          id="minussign"
+          className="btn btn-outline-dark"
         >
-          <img
-            src="https://image.flaticon.com/icons/svg/709/709519.svg"
-            alt=""
-          />
+       <FontAwesomeIcon icon={faMinus} />
         </button>
       </div>
+    </div>
     </div>
   );
 };

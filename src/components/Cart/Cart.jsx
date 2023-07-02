@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-
 import { connect } from "react-redux";
-
 import CartItem from "./CartItem";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+import {Link} from "react-router-dom";
 
 const Cart = ({ cart }) => {
   const [totalPrice, setTotalPrice] = useState(0);
@@ -22,19 +23,20 @@ const Cart = ({ cart }) => {
   }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems]);
 
   return (
-    <div>
-      <div >
+    <div className="product-container-singleitem">
+      <h1><Link to="/prod"><span><FontAwesomeIcon icon={faArrowLeftLong} className="single-item-fontawesome"/></span>Go Back to Products</Link></h1>
+      <div>
         {cart.map((item) => (
           <CartItem key={item.id} item={item} />
         ))}
       </div>
-      <div >
-        <h4>Cart Summary</h4>
+      <div className="product-container-singleitem" >
+        <h4 >Cart Summary</h4>
         <div>
-          <span>TOTAL: ({totalItems} items)</span>
-          <span>$ {totalPrice}</span>
+          <span  className="summ">TOTAL: ({totalItems} items)</span>
+          <span  className="summ">$ {totalPrice}</span>
         </div>
-        <button>
+        <button className="btn btn-primary">
           Proceed To Checkout
         </button>
       </div>

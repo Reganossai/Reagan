@@ -10,15 +10,15 @@ import Deals from "./Deals";
 
 const Home = () => {
   return (
-    <div>
+    <div className="home">
       <Announcement />
       <Navbar />
       <Slider />
       <Categories />
-      <Products />
-      <Newsletter />
+      <Products/>
+      {/* <Newsletter />
       <Deals/>
-      <Footer />
+      <Footer /> */}
       
     </div>
   );

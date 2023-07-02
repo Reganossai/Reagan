@@ -1,5 +1,7 @@
 * {
     text-decoration: none;
+    margin: 0px;
+    padding: 0px;
 }
 
 a {
@@ -14,15 +16,55 @@ a {
 
 }
 
-.product-container {
+.products-div {
     display: flex;
-    padding: 80px;
+    width: 1500px;
+
+}
+
+.odu {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1400px;
+    height: 1000px;
+    padding: 15px;
+}
+
+.product-container {
+    width: 200px;
+    height: 200px;
+    border: none;
+    border-radius: 15px;
+    margin: 30px 0px 30px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 100px 20px 100px 40px;
+   
+
+
+}
+
+.product-container p{
+    margin-left: 50px;
+    color: red;
 
 }
 
 
 .product-container-singleitem {
     padding: 80px;
+
+}
+
+.product-container-singleitem h1{
+    font-size: 15px;
+
+}
+
+.product-container-singleitem a{
+    color: black;
+    text-decoration: none;
 
 }
 
@@ -42,13 +84,14 @@ a {
 }
 
 .product-desc-singleitem p {
-    font-size: 20px;
+    font-size: 15px;
+    color: red;
 
 }
 
 .product-container img {
-    width: 90px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     padding: 10px;
 }
 
@@ -81,14 +124,21 @@ a {
     color: darkblue;
 }
 
-.menu-links {
+#menu-links {
     text-decoration: none;
+    padding-bottom: 10px;
 }
 
 .logo {
     font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
     margin-left: 30px;
+}
+
+.products-header {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    text-align: center;
 }
 
 #add-to-cart-btn {
@@ -113,7 +163,7 @@ a {
 
 .navbar {
     width: 100%;
-    height: 60px;
+    height: 50px;
     display: flex;
 
 
@@ -121,7 +171,7 @@ a {
 
 
 #navbarSupportedContent {
-    margin: 5px 0px 0px 650px;
+    margin: 5px 0px 0px 600px;
 
 }
 
@@ -141,9 +191,55 @@ a {
     display: none;
 }
 
+#prod-but {
+    margin: 30px 0px 30px 40px;
+}
+
+.single-item-fontawesome{
+    font-weight: lighter;
+    font-size: 10px;
+    margin-right: 5px;
+}
+
+.summ{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
+}
+
+#minussign{
+    margin: 20px 20px 20px 20px;
+}
+
+input[type=number]{
+    padding: 3px 3px 3px 3px;
+    margin-left: 5px;
+}
+
+.active {
+    border-bottom: 10px solid black;
+    
+    
+  }
+
+  
+
+
 
 @media only screen and (max-width: 800px) {
-    label{
+
+    .home{
+        width: 100%;
+        height: 100vh;
+        overflow-x: hidden;
+    }
+
+    .prod{
+        overflow-x: hidden;
+    }
+
+
+    
+    label {
         font-size: 13px;
     }
 
@@ -155,7 +251,7 @@ a {
 
     }
 
-    .menu-links {
+    #menu-links {
         font-size: 15px;
     }
 
@@ -174,16 +270,16 @@ a {
         margin: 0 auto;
         width: 100%;
         height: 100%;
-        background-color:whitesmoke;
+        background-color: whitesmoke;
         z-index: 10;
-       
+
 
     }
 
 
-    #navbarSupportedContentMobile ul{
+    #navbarSupportedContentMobile ul {
         margin-top: 20px;
-    
+
 
     }
 
@@ -193,12 +289,31 @@ a {
         color: black;
     }
 
+    .products-header {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: lighter;
+        margin:50px 0px 50px 0px;
+    
+    }
+    
+
 
     .product-container {
         display: flex;
         padding: 0px;
         width: 390px;
+        height: 400px;
+        margin-bottom: 200px;
+        margin-left: 0px;
+        margin-right: 10px;
+        
 
+    }
+
+    .product-container p{
+        color: red;
+        margin-left: 35px;
     }
 
     .product-container img {
@@ -219,13 +334,51 @@ a {
         padding: 0px;
     }
 
-    #prod-but {
-        width: 90px;
-    }
-
+    
     #add-to-cart-btn {
         width: 90px;
     }
+
+    .odu {
+        display: flex;
+        flex-wrap: wrap;
+        width: 390px;
+        height: 400px;
+
+    }
+
+    .product-container {
+        width: 100px;
+        height: 80px;
+    }
+
+    
+    .product-container img {
+        width: 150px;
+        height: 150px;
+
+    }
+
+    .pro{
+        height: 1000px;
+    }
+
+    #prod-but {
+        width: 70px;
+        margin-left: 35px;
+        margin-bottom: 15px;
+    }
+
+    .product-container-singleitem{
+        padding: 20px;
+
+    }
+
+    .product-desc-singleitem {
+        padding: 0px;
+    }
+    
+
 
 
 

@@ -11,7 +11,7 @@ const Deals = () => {
 
     axios({
       method: "get",
-      url: "https://kinkiverse.onrender.com/deals/2",
+      url: "https://kinkiverse.onrender.com/deals",
       headers,
     })
       .then((response) => {
