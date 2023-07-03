@@ -37,8 +37,9 @@ const Navbar = ({ cart }) => {
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="logo-div">
-        <Link  to="/">
+        <Link className="logo-links" to="/">
           <img src={kinkiverse} alt="kink"/>
+          <h1 className="logo">Kinkiverse.</h1>
         </Link>
       </div>
       <div id="navbarSupportedContent">
