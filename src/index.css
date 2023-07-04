@@ -14,8 +14,8 @@ button {
 
 .products-header {
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 600;
+    color: #483248;
+    font-size: 25px;
     margin-top: 30px;
 
 }
@@ -135,14 +135,14 @@ button {
 }
 
 .logo {
-    color:#483248;
+    color: #483248;
     font-size: 25px;
     margin: 30px 0px 0px 30px;
     font-family: monospace;
-    
+
 }
 
-.logo-links{
+.logo-links {
     display: flex;
     text-decoration: none;
 
@@ -190,6 +190,10 @@ button {
 .hira {
     width: 1000px;
     margin: 10px 0px 0px 165px;
+}
+
+.hirrr {
+    display: none;
 }
 
 
@@ -253,110 +257,78 @@ input[type=number] {
 }
 
 
-
 .kirk {
-    display: flex;
+    margin-right: 300px;
+    margin-top: 50px;
 
+}
+
+.koko {
+    display: flex;
+    color: pink;
+    font-size: 20px;
 }
 
 
 .first-conti {
-    display: none;
     width: 100%;
-    height: 200px;
+    height: fit-content;
     font-family: cursive;
     color: black;
+    display: flex;
     padding: 20px 10px;
     justify-content: space-between;
-    background-color: black;
+    background-color: #483248;
+    ;
 }
 
-.first-conti h1 {
-    font-size: 25px;
-    color: wheat;
 
+.foot-linko {
+    display: flex;
+    margin: 0px 0px 0px 30px;
 }
 
+.foot-linko img {
+    width: 30px;
+    height: 30px;
+    margin: 10px 10px 10px 0px;
+    border-radius: 5px;
+}
 
 .hell {
     width: 300px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
-.hell img {
+.hell h4 {
+    font-size: 10px;
+    font-weight: lighter;
+    color: pink;
+    width: 250px;
+    font-family: verdana;
+}
+
+.kink {
     width: 100px;
-    margin: 5px 0px 0px 100px;
+    height: 100px;
+    margin: 0px 0px 10px 40px;
     border-radius: 10px;
 }
 
-.ig {
-    width: 35px;
-    height: 35px;
-    border-radius: 5px;
+.olo {
+    margin: 20px 100px 0px 0px
 }
 
-
-.ig-div {
-    display: flex;
-    flex-direction: row;
-    margin: 10px 20px 0px 500px;
+.olo h1 {
+    color: pink;
+    font-size: 15px;
 }
 
-.ig-div a {
-    text-decoration: none;
-}
-
-.ig-div h5 {
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 1px 0px 0px 10px;
-}
-
-.whatsapp {
-
-    width: 35px;
-    height: 35px;
-    border-radius: 5px;
-}
-
-.whatsapp-div {
-    display: flex;
-    flex-direction: row;
-    margin: 10px 20px 0px 0px;
-}
-
-.whatsapp-div a {
-    text-decoration: none;
-}
-
-.whatsapp-div h5 {
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 1px 0px 0px 10px;
-}
-
-.linkedin {
-
-    width: 35px;
-    height: 35px;
-    border-radius: 5px;
-}
-
-.linkedin-div {
-    display: flex;
-    flex-direction: row;
-    margin: 10px 80px 0px 0px;
-
-}
-
-.linkedin-div a {
-    text-decoration: none;
-}
-
-.linkedin-div h5 {
-    font-family: Arial, Helvetica, sans-serif;
-    color: black;
-    margin: 1px 0px 0px 10px;
-    ;
+.footer-img {
+    width: 100px;
+    margin: 5px 0px 0px 100px;
+    border-radius: 10px;
 }
 
 .second-footer-desktop {
@@ -472,6 +444,14 @@ input[type=number] {
     .hira {
         display: none;
     }
+
+    .hirrr {
+        color: pink;
+        display: flex;
+        width: 70%;
+        margin-left: 55px;
+    }
+
 
     .prod {
         overflow-x: hidden;
@@ -658,7 +638,7 @@ input[type=number] {
         margin: 5px 0px;
     }
 
-    .hell img {
+    .kink {
         width: 110px;
         height: 100px;
         border-radius: 15px;
@@ -737,19 +717,19 @@ input[type=number] {
         font-family: 'Courier New', Courier, monospace;
     }
 
-    .logo{
+    .logo {
         font-size: 16px;
         color: pink;
         margin: 40px 0px 0px 10px;
     }
 
-    .logo-links{
+    .logo-links {
         display: flex;
         text-decoration: none;
-        
-    
+
+
     }
-    
+
 
 
     .logo-div img {
@@ -758,6 +738,38 @@ input[type=number] {
         border-radius: 15px;
         margin: 0px 0px 0px 20px;
     }
+
+
+    .hell h4 {
+        display: none;
+        font-size: 10px;
+        font-weight: lighter;
+        color: pink;
+        width: 250px;
+        font-family: verdana;
+    }
+
+    .foot-linko {
+        margin: 30px 0px 0px 120px;
+    }
+
+    .koko {
+        font-size: 15px;
+        margin-top: 20px;
+        margin-left: 50px;
+    }
+
+    .olo {
+        display: flex;
+        flex-direction: row;
+        margin: 0px 0px 0px 90px;
+    }
+
+    .olo h1 {
+        margin: 0px 2px 0px 2px;
+    }
+
+
 
 
 
