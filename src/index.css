@@ -116,12 +116,28 @@ button {
 }
 
 #first-skel {
-    padding: 100px 0px 0px 80px;
+    width: 600px;
+    height: 100vh;
+    padding: 0px;
+    display: flex;
+    margin: 0px 0px 0px 0px;
+}   
+
+.first-skel-skel{
+    margin: 160px 0px 0px 70px;
 }
 
-#second-skel {
-    margin: 120px 250px 0px 50px;
 
+.second-skel-skel{
+    margin: 0px 0px 0px -25px;
+    position: absolute;
+    top: 150px; 
+    left: 80px;
+}
+
+
+.last-skel-skel{
+    margin: 155px 50px 0px 20px;
 }
 
 .navbar-carticon {
@@ -768,6 +784,35 @@ input[type=number] {
     .olo h1 {
         margin: 0px 2px 0px 2px;
     }
+
+    .skel {
+        display: flex;
+    }
+    
+    #first-skel {
+        width: 300px;
+        height: 100vh;
+        padding: 0px;
+        display: flex;
+        margin: 0px 0px 0px 0px;
+    }   
+    
+    .first-skel-skel{
+        margin: 160px 0px 0px 20px;
+        height: 20px;
+        width: 20px;
+    }
+    
+    
+    .second-skel-skel{
+        margin: 100px 0px 0px -30px;
+        position: absolute;
+        top: 150px; 
+        left: 80px;
+    }
+    
+    
+    
 
 
 

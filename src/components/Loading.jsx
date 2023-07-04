@@ -7,17 +7,22 @@ const Loading = () => {
     <div>
       <div className="skel">
         <div id="first-skel">
-          <Skeleton height={350} width={400} />
+          <Skeleton className="first-skel-skel" height={160} width={160} />
         </div>
-        <div id="second-skel">
-          <Skeleton height={40} width={200} />
-          <Skeleton height={65} width={700} />
-          <Skeleton height={20} width={90} />
-          <Skeleton height={40} width={80} />
-          <Skeleton height={100} width={710} />
-          <Skeleton height={40} width={240} />
+        <div id="first-skel">
+          <Skeleton className="second-skel-skel" height={160} width={160} />
+        </div>
+        <div id="first-skel">
+          <Skeleton className="second-skel-skel"  height={160} width={160} />
+        </div>
+        <div id="first-skel">
+          <Skeleton className="second-skel-skel"  height={160} width={160} />
+        </div>
+        <div>
+          <Skeleton className="last-skel-skel"  height={160} width={160} />
         </div>
       </div>
+      
     </div>
   );
 };
