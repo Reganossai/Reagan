@@ -16,6 +16,7 @@ import Prod from "./components/Prod";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Registrationsuccessful from "./components/Registrationsuccessful";
+import Contact from "./pages/Contact";
 
 function App({ current }) {
   
@@ -32,6 +33,7 @@ function App({ current }) {
           <Route path="/prod" component={Prod} />
           <Route path="/signin" component={Login} />
           <Route path="/signup" component={Register} />
+          <Route path="/contact" component={Contact} /> 
           <Route path="/registrationsuccess" component={Registrationsuccessful} />
           {!current ? (
             <Redirect to="/" />

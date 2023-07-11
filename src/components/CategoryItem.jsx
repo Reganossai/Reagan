@@ -13,7 +13,9 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  ${mobile({ height: "10vh" })}
+  z-index:1;
+  opacity:0.8;
+  ${mobile({ height: "40vh",})}
 
 `;
 
@@ -31,9 +33,14 @@ const Info = styled.div`
 `;
 
 const Title = styled.h1`
-    color:white;
+    color: black;
+    margin-top:30px;
+    margin-left:2px;
     margin-bottom: 20px;
-    ${mobile({ fontSize: "15px", })}
+    font-family:monospace;
+    font-weight:bolder;
+    font-size:20px;
+    ${mobile({ fontSize: "13px", })}
     
 `;
 
