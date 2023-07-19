@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { loadCurrentItem, addToCart } from "../redux/Shopping/shopping-actions";
 
-const Product = ({ productData, product, addToCart, loadCurrentItem }) => {
+const Product = ({ productData, product, addToCart, loadCurrentItem, }) => {
+
+
+
   return (
     <div className="product-container">
       <div>

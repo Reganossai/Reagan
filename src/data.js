@@ -25,18 +25,25 @@ export const sliderItems = [
   export const categories = [
     {
       id: 1,
-      img: "https://images.unsplash.com/photo-1581794236300-acd130bf0035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=874&q=80",
-      title: "Bdsm kits",
+      img: "https://images.unsplash.com/photo-1523205565295-f8e91625443b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bWVuJ3MlMjB3ZWFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      // img: "https://images.unsplash.com/photo-1581794236300-acd130bf0035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=874&q=80",
+      // title: "Bdsm kits",
+      title: "Male wears",
     },
     {
       id: 2,
-      img: "https://images.unsplash.com/photo-1616782910736-07684b1a62be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2V4JTIwdG95cyUyMGRpbGRvfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-      title: "Sex toys",
+      // img: "https://images.unsplash.com/photo-1616782910736-07684b1a62be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2V4JTIwdG95cyUyMGRpbGRvfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      // title: "Sex toys",
+      img: "https://images.unsplash.com/photo-1594633313515-7ad9334a2349?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fFdvbWVuJTIwd2VhcnN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      title: "Female wears",
+
     },
     {
       id: 3,
-      img: "https://plus.unsplash.com/premium_photo-1675183855763-e36a82ab8edc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
-      title: "Diapers and abdl wears",
+      // img: "https://plus.unsplash.com/premium_photo-1675183855763-e36a82ab8edc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      // title: "Diapers and abdl wears",
+      img: "https://images.unsplash.com/photo-1526738549149-8e07eca6c147?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8RWxlY3Ryb25pY3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      title: "Gadgets",
     },
   ];
 

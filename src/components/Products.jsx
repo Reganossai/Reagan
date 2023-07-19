@@ -6,11 +6,13 @@ import Product from "./Product";
 import Loading from "./Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
 const Products = ({ products }) => {
-  const [Data, setData] = useState([]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+
+
 
   const callBck = useCallback(async () => {
     try {
@@ -18,6 +20,7 @@ const Products = ({ products }) => {
       setErrorMessage("");
       const res = await axios.get("https://fakestoreapi.com/products");
       setData(res.data);
+      console.log(res.data);
     } catch (err) {
       setErrorMessage(err.message);
     } finally {
@@ -39,19 +42,20 @@ const Products = ({ products }) => {
 
   return (
     <div className="pro">
-     <h1 className="products-header">Products</h1>
+      <h1 className="products-header">Products</h1>
       <div className="products-div">
         {loading ? (
           <Loading />
-        ) : (
+        ) : (<div>
+          
           <div className="odu">
             {products.map((prod) => (
               <Product key={prod.id} productData={prod} />
             ))}
           </div>
+        </div>
         )}
       </div>
-     
     </div>
   );
 };

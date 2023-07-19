@@ -35,11 +35,11 @@ const Info = styled.div`
 const Title = styled.h1`
     color: black;
     margin-top:30px;
-    margin-left:2px;
+    margin-left:5px;
     margin-bottom: 20px;
     font-family:monospace;
     font-weight:bolder;
-    font-size:20px;
+    font-size:17px;
     ${mobile({ fontSize: "13px", })}
     
 `;
