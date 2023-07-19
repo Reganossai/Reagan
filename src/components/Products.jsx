@@ -1,11 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Product from "./Product";
 import Loading from "./Loading";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 
 const Products = ({ products }) => {
   const [data, setData] = useState([]);
@@ -40,17 +37,7 @@ const Products = ({ products }) => {
 
   return (
     <div className="pro">
-      <h1 className="aki">
-        <Link  to="/">
-          <span>
-            <FontAwesomeIcon
-              icon={faArrowLeftLong}
-              className="prod-fontawesome"
-            />
-          </span>
-          Go to homepage
-        </Link>
-      </h1>
+     
       <h1 className="products-header">Products</h1>
       <div className="products-div">
         {loading ? (
