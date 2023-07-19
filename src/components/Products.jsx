@@ -5,14 +5,12 @@ import { connect } from "react-redux";
 import Product from "./Product";
 import Loading from "./Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 
 const Products = ({ products }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
-
-
 
   const callBck = useCallback(async () => {
     try {
@@ -42,18 +40,29 @@ const Products = ({ products }) => {
 
   return (
     <div className="pro">
+      <h1 className="aki">
+        <Link  to="/">
+          <span>
+            <FontAwesomeIcon
+              icon={faArrowLeftLong}
+              className="prod-fontawesome"
+            />
+          </span>
+          Go to homepage
+        </Link>
+      </h1>
       <h1 className="products-header">Products</h1>
       <div className="products-div">
         {loading ? (
           <Loading />
-        ) : (<div>
-          
-          <div className="odu">
-            {products.map((prod) => (
-              <Product key={prod.id} productData={prod} />
-            ))}
+        ) : (
+          <div>
+            <div className="odu">
+              {products.map((prod) => (
+                <Product key={prod.id} productData={prod} />
+              ))}
+            </div>
           </div>
-        </div>
         )}
       </div>
     </div>

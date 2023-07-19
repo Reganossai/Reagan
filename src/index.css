@@ -16,6 +16,12 @@ button {
     background-color: #FAF9F6;
 }
 
+.aki{
+    display: none;
+    margin: 10px 0px 0px 20px;
+}
+
+
 .prod{
     
     background-color:#FAF9F6;
@@ -67,7 +73,6 @@ button {
 
 .product-container-singleitem {
     padding: 80px;
-    background-color:#FAF9F6;
     height: 100vh;
 
 }
@@ -578,6 +583,8 @@ input[type=number] {
 
 
 
+
+
 @media only screen and (max-width: 800px) {
 
     .navbar {
@@ -611,6 +618,16 @@ input[type=number] {
     }
     
 
+    .aki{
+        display: block;
+        margin: 10px 0px 0px 20px;
+    }
+    
+    .aki a{
+        text-decoration: none;
+        font-size: 15px;
+    }
+    
 
     .home {
         width: 100%;
