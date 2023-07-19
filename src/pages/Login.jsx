@@ -40,29 +40,15 @@ const Form = styled.form`
   flex-direction: column;
 `;
 
-const Input = styled.input`
-  flex: 1;
-  min-width: 40%;
-  margin: 10px 0;
-  padding: 10px;
-`;
 
-const Button = styled.button`
-  width: 40%;
-  border: none;
-  padding: 15px 20px;
-  background-color: teal;
-  color: white;
-  cursor: pointer;
-  margin-bottom: 10px;
-`;
+
 
 const Login = () => {
   const [data, setData] = useState([]);
   const [users, setUsers] = useState([]);
   const [message, setMessage] = useState("");
   const [signinResponse, setSigninResponse] = useState([]);
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const history = useHistory();
 
@@ -91,75 +77,73 @@ const Login = () => {
       email: formData.email,
       password: formData.password,
     };
-  
+
     axios({
       method: "post",
       url: "https://kinkiverse.onrender.com/users/signin",
       data: body,
     })
       .then((response) => {
-        
-        if(response.data.success == true){
+        if (response.data.success == true) {
           console.log(response.data);
-        history.push("/prod");
-        } else{
-         
-
-        // const token = response.data.token;
+          history.push("/prod");
+        } else {
+          // const token = response.data.token;
         }
         // setSigninResponse(response.data);
         // setLoading(false);
-      
       })
       .catch((error) => {
         console.log(error);
         toast.error("User Login failed due to some reasons");
         setLoading(false);
-      })
-      
-      
+      });
   };
 
-  if(loading){
-    return<h1 className="login-loading">Please wait while your login credentials are being validated</h1>
+  if (loading) {
+    return (
+      <h1 className="login-loading">
+        Please wait while your login credentials are being validated
+      </h1>
+    );
   }
 
-
   return (
-    <div>
-      <Container>
-        <Wrapper>
-          <Title>SIGN IN</Title>
-          <Form onSubmit={result}>
-            <div className="inp">
-              <label htmlFor="email">Email</label>
-              <Input
-                type="email"
-                placeholder="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="inp">
-              <label htmlFor="password">Password</label>
-              <Input
-                type="password"
-                placeholder="password"
-                name="password"
-                required
-                value={formData.password}
-                onChange={handleChange}
-              />
-            </div>
-            <Button type="submit" >
-              LOGIN
-            </Button>
-            <Link to="/signup">CREATE A NEW ACCOUNT</Link>
-          </Form>
-        </Wrapper>
-      </Container>
+    <div className="login-div">
+      <div className="bg"></div>
+      <div className="bgg">
+        <h1> SIGN IN </h1>
+        <form onSubmit={result} className="formis-2">
+          <div className="inp-1">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              placeholder="email"
+              name="email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="inp-2">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              placeholder="password"
+              
+              name="password"
+              required
+              value={formData.password}
+              onChange={handleChange}
+            />
+          </div>
+
+          <button id="log-bt" className="btn btn-primary" type="submit">LOGIN</button>
+          <div className="pedro">
+          <Link to="/signup">DON'T HAVE AN ACCOUNT WITH US YET? CREATE A NEW ACCOUNT</Link>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

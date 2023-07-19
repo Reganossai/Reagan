@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { addToCart } from "../redux/Shopping/shopping-actions";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -22,6 +23,7 @@ const SingleItem = ({ current, addToCart,cartCount}) => {
         <button id="vvv" className="btn btn-outline-dark"><Link to="/cart">View Cart</Link></button>
       </div>
     </div>
+    <Footer/>
     </div>
   );
 };

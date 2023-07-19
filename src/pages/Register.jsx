@@ -166,7 +166,7 @@ const Register = () => {
 
   return (
     <div className="register-div">
-      <div className="bg"></div>
+      <div className="bg-2"></div>
       <div className="bgg">
         <h1>CREATE AN ACCOUNT</h1>
         <form onSubmit={result} className="formis">
@@ -278,10 +278,7 @@ const Register = () => {
           </Agreement>
 
           <div id="create-btn">
-            <Button type="submit" className="btn btn-primary">
-              CREATE
-            </Button>
-
+          <button id="reg-bt" className="btn btn-success" type="submit">CREATE ACCOUNT</button>
             <Link to="/signin">
               Already have an account? click the link to sign in
             </Link>

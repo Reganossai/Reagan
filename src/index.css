@@ -12,6 +12,15 @@ button {
     cursor: pointer;
 }
 
+.home{
+    background-color: #FAF9F6;
+}
+
+.prod{
+    
+    background-color:#FAF9F6;
+}
+
 .products-header {
     text-align: center;
     color: #483248;
@@ -58,6 +67,8 @@ button {
 
 .product-container-singleitem {
     padding: 80px;
+    background-color:#FAF9F6;
+    height: 100vh;
 
 }
 
@@ -121,22 +132,22 @@ button {
     padding: 0px;
     display: flex;
     margin: 0px 0px 0px 0px;
-}   
+}
 
-.first-skel-skel{
+.first-skel-skel {
     margin: 160px 0px 0px 70px;
 }
 
 
-.second-skel-skel{
+.second-skel-skel {
     margin: 0px 0px 0px -25px;
     position: absolute;
-    top: 150px; 
+    top: 150px;
     left: 80px;
 }
 
 
-.last-skel-skel{
+.last-skel-skel {
     margin: 155px 50px 0px 20px;
 }
 
@@ -333,12 +344,17 @@ input[type=number] {
 }
 
 .olo {
-    margin: 20px 100px 0px 0px
+    margin: 0px 100px 0px 0px
+}
+
+.olo a {
+    color: pink;
+    font-size: 15px;
+    text-decoration: none;
 }
 
 .olo h1 {
-    color: pink;
-    font-size: 15px;
+    margin: 0px 0px 0px 0px;
 }
 
 .footer-img {
@@ -381,6 +397,21 @@ input[type=number] {
 
 }
 
+.bg-2 {
+    position: absolute;
+    z-index: -1;
+    height: 120vh;
+    width: 100%;
+    background: url("https://images.unsplash.com/photo-1598971861713-54ad16a7e72e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHNob3BwaW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60");
+    background-size: cover;
+    background-position: center;
+    object-fit: fill;
+    opacity: 0.6;
+
+
+
+}
+
 
 .bgg {
     position: relative;
@@ -400,6 +431,42 @@ input[type=number] {
 
 }
 
+.login-div {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+
+}
+
+.inp-1{
+    display: flex;
+    flex-direction: column;
+    
+    margin: 0px 0px 0px 300px;
+
+}
+
+.inp-1 input{
+    width: 700px;
+    padding: 5px 0px 5px 0px;
+    border-radius: 5px;
+    margin: 10px 0px 10px 0px;
+}
+
+.inp-2{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 0px 0px 300px;
+}
+
+.inp-2 input{
+    width: 700px;
+    padding: 5px 0px 5px 0px;
+    border-radius: 5px;
+    margin: 10px 0px 10px 0px;
+}
+
 .logo-div img {
     width: 120px;
     height: 100px;
@@ -416,9 +483,17 @@ input[type=number] {
     padding: 15px;
     position: relative;
     z-index: 1;
-
-
 }
+
+.formis-2{
+    width: 1200px;
+    margin: 20px 0px 0px 20px;
+}
+
+.formis-2 a{
+    margin: 20px 0px 0px 0px;
+}
+
 
 .formis .inp {
     width: 400px;
@@ -431,61 +506,75 @@ input[type=number] {
     flex-direction: column;
 }
 
-.filt h1{
+.filt h1 {
     font-size: 15px;
     margin: 20px 0px 10px 10px;
 }
 
-.filt-fontawesome{
+.filt-fontawesome {
     margin: 0px 5px 0px 5px;
 
 }
 
-.filter{
+.filter {
     width: 1345px;
 }
 
-.filter img{
+.filter img {
     width: 140px;
     height: 135px;
     margin: 0px 0px 0px 600px;
 
 }
 
-.filter p{
+.filter p {
     font-size: 15px;
     width: 1250px;
     margin: 20px 0px 20px 40px;
 }
 
 
-#filter-1{
+#filter-1 {
     margin: 10px 0px 100px 40px;
 
 }
 
-#filter-2{
+#filter-2 {
     margin: 10px 0px 100px 10px;
 
 }
 
-#filter-2 a{
+#filter-2 a {
     text-decoration: none;
 
 }
 
-.filter-div{
+.filter-div {
     margin: -30px 0px 60px 1150px;
 }
 
 
-.filter-home-div{
+.filter-home-div {
     margin: 80px 0px 0px 80px;
 }
 
 
 
 
+#log-bt{
+    margin: 20px 0px 0px 300px ;
+    width: 700px;
+}
+
+#reg-bt{
+    margin: 0px 0px 10px 0px ;
+    width: 1190px;
+}
+
+.pedro{
+    margin: 20px 0px 0px 300px;
+
+}
 
 
 
@@ -496,11 +585,38 @@ input[type=number] {
 
     }
 
+    #log-bt{
+        margin: 20px 0px 0px 0px ;
+        width: 250px;
+    }
+
+    #reg-bt{
+        margin: 0px 0px 10px 0px ;
+        width: 290px;
+
+    }
+   
+    .pedro{
+        margin: 20px 0px 0px -15px;
+    }
+
+    .pedro a{
+        width: fit-content;
+        font-size: 10px;
+    }
+
+    .formis-2{
+        width: 330px;
+        margin: 20px 0px 0px 20px;
+    }
+    
+
 
     .home {
         width: 100%;
         height: 100vh;
         overflow-x: hidden;
+        background-color: #FAF9F6;
     }
 
     .hir {
@@ -521,8 +637,17 @@ input[type=number] {
 
     .prod {
         overflow-x: hidden;
+    background-color:#FAF9F6;
     }
 
+    .bg{
+        width: 415px;
+        height: 155vh;
+    }
+    .bg-2{
+        width: 415px;
+        height: 200vh;
+    }
 
 
     label {
@@ -601,7 +726,7 @@ input[type=number] {
     }
 
     .product-container p {
-        color: black;
+        color: red;
         margin-left: 35px;
     }
 
@@ -609,6 +734,7 @@ input[type=number] {
         width: 220px;
         height: 120px;
         padding: 30px;
+        border-radius: 15px;
     }
 
     .product-desc p {
@@ -674,6 +800,7 @@ input[type=number] {
     .product-desc-singleitem {
         padding: 0px;
     }
+
 
 
     .kirk {
@@ -828,84 +955,113 @@ input[type=number] {
     .olo {
         display: flex;
         flex-direction: row;
-        margin: 0px 0px 0px 90px;
+        margin: 0px 0px 0px 0px;
     }
 
     .olo h1 {
-        margin: 0px 2px 0px 2px;
+        margin: 0px 5px 0px 2px;
+        font-size: 10px;
+    }
+
+    .olo a {
+        font-size: 10px;
     }
 
     .skel {
         display: flex;
     }
-    
+
     #first-skel {
         width: 300px;
         height: 100vh;
         padding: 0px;
         display: flex;
         margin: 0px 0px 0px 0px;
-    }   
-    
-    .first-skel-skel{
+    }
+
+    .first-skel-skel {
         margin: 160px 0px 0px 20px;
         height: 20px;
         width: 20px;
     }
-    
-    
-    .second-skel-skel{
+
+
+    .second-skel-skel {
         margin: 100px 0px 0px -30px;
         position: absolute;
-        top: 150px; 
+        top: 150px;
         left: 80px;
     }
 
+
+    .filter {
+        width: 100%;
+    }
+
+    .filter img {
+        width: 140px;
+        height: 135px;
+        margin: 0px 0px 0px 100px;
+
+    }
+
+    .filter p {
+        font-size: 15px;
+        width: 330px;
+        margin: 20px 0px 20px 20px;
+    }
+
+
+    #filter-1 {
+        margin: 10px 0px 100px 40px;
+
+    }
+
+    #filter-2 {
+        margin: 10px 0px 100px 10px;
+
+    }
+
+    #filter-2 a {
+        text-decoration: none;
+
+    }
+
+    .filter-div {
+        margin: -30px 0px 60px 200px;
+    }
+
+    .filter-home-div {
+        margin: 30px 0px 0px 20px;
+    }
+
+    .inp-1{
+        display: flex;
+        flex-direction: column;
+        margin: 0px 0px 0px 0px;
     
-.filter{
-    width: 100%;
-}
-
-.filter img{
-    width: 140px;
-    height: 135px;
-    margin: 0px 0px 0px 100px;
-
-}
-
-.filter p{
-    font-size: 15px;
-    width: 330px;
-    margin: 20px 0px 20px 20px;
-}
-
-
-#filter-1{
-    margin: 10px 0px 100px 40px;
-
-}
-
-#filter-2{
-    margin: 10px 0px 100px 10px;
-
-}
-
-#filter-2 a{
-    text-decoration: none;
-
-}
-
-.filter-div{
-    margin: -30px 0px 60px 200px;
-}
-
-.filter-home-div{
-    margin: 30px 0px 0px 20px;
-}
+    }
     
+    .inp-1 input{
+        width: 250px;
+        padding: 5px 0px 5px 0px;
+        border-radius: 5px;
+        margin: 10px 0px 10px 0px;
+    }
     
+    .inp-2{
+        display: flex;
+        flex-direction: column;
+        margin: 0px 0px 0px 0px;
+    }
     
-
+    .inp-2 input{
+        width: 250px;
+        padding: 5px 0px 5px 0px;
+        border-radius: 5px;
+        margin: 10px 0px 10px 0px;
+    }
+    
 
 
 
