@@ -5,15 +5,16 @@ import { Link } from "react-router-dom";
 import { loadCurrentItem, addToCart } from "../redux/Shopping/shopping-actions";
 import { connect } from "react-redux";
 import Navbar from "../components/Navbar";
+import Filter from "../components/Filter";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 
-const Jewelery = ({current,addToCart}) => {
+const Jewelery = ({ current, addToCart }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const Jewelery = data.filter(
-    (product) => product.category === "jewelery" 
-  );
+  const Jewelery = data.filter((product) => product.category === "jewelery");
 
   const callBck = useCallback(async () => {
     try {
@@ -41,9 +42,22 @@ const Jewelery = ({current,addToCart}) => {
   }
 
   return (
-    <div>
-      <Navbar/>
-
+    <div className="filt">
+      <Navbar />
+      <h1>
+        <Link to="/">
+          <span>
+            <FontAwesomeIcon
+              icon={faArrowLeftLong}
+              className="filt-fontawesome"
+            />
+          </span>
+          Go Back
+        </Link>
+      </h1>
+      <div className="filter-div">
+        <Filter />
+      </div>
       {Jewelery.map((jew) => (
         <div key={jew.id} className="filter">
           <div>
@@ -54,27 +68,32 @@ const Jewelery = ({current,addToCart}) => {
 
           <p className="peter">$ {jew.price}</p>
 
-          <button onClick={() => addToCart(jew.id)} id="filter-1" className="btn btn-primary">Add To Cart</button>
-        <button id="filter-2" className="btn btn-outline-dark"><Link to="/cart">View Cart</Link></button>
+          <button
+            onClick={() => addToCart(jew.id)}
+            id="filter-1"
+            className="btn btn-primary"
+          >
+            Add To Cart
+          </button>
+          <button id="filter-2" className="btn btn-outline-dark">
+            <Link to="/cart">View Cart</Link>
+          </button>
         </div>
       ))}
-    
     </div>
   );
 };
 
-
-
 const mapStateToProps = (state) => {
-    return {
-      current: state.jewelery.currentItem,
-    };
+  return {
+    current: state.jewelery.currentItem,
   };
-  
-  const mapDispatchToProps = (dispatch) => {
-    return {
-      addToCart: (id) => dispatch(addToCart(id)),
-    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => dispatch(addToCart(id)),
   };
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(Jewelery);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Jewelery);

@@ -479,6 +479,11 @@ input[type=number] {
 }
 
 
+.filter-home-div{
+    margin: 80px 0px 0px 80px;
+}
+
+
 
 
 
@@ -894,6 +899,9 @@ input[type=number] {
     margin: -30px 0px 60px 200px;
 }
 
+.filter-home-div{
+    margin: 30px 0px 0px 20px;
+}
     
     
     

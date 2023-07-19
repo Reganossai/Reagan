@@ -16,7 +16,7 @@ const Home = () => {
       <Navbar />
       <hr className="hir"/>
       <Categories />
-      <div className="filter-div">
+      <div className="filter-home-div">
         <Filter/>
       </div>
       <Products/>

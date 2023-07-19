@@ -23,13 +23,9 @@ const Footer = () => {
           <img src={kinkiverse} className="kink" alt="kink" />
 
           <h4>
-            Welcome to Kinkiverse, the best shopping platform for anything to
-            fuel your kink and take them to the next level . We provide you with
-            the best products from the best producers in the market. We get you
-            ABDL products , BDSM products and many more. Kinkyverse allows you
-            to browse through a lot of options from Diapers, pacifiers, onesies,
-            toys, dildos, vibrators and many more. Enjoy our personal shopper
-            experience.
+            Welcome to Kinkiverse, the best shopping platform for your men's
+            clothing wears, female clothing wears, gadgets/electronics and
+            jewelery. Enjoy our personal shopper experience.
           </h4>
           <div className="foot-linko">
             <img src={telegram} />

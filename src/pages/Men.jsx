@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import { loadCurrentItem, addToCart } from "../redux/Shopping/shopping-actions";
 import { connect } from "react-redux";
 import Navbar from "../components/Navbar";
+import Filter from "../components/Filter";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 
 const Men = ({ current, addToCart }) => {
   const [data, setData] = useState([]);
@@ -41,8 +44,22 @@ const Men = ({ current, addToCart }) => {
   }
 
   return (
-    <div>
+    <div className="filt">
       <Navbar />
+      <h1>
+        <Link to="/">
+          <span>
+            <FontAwesomeIcon
+              icon={faArrowLeftLong}
+              className="filt-fontawesome"
+            />
+          </span>
+          Go Back
+        </Link>
+      </h1>
+      <div className="filter-div">
+        <Filter />
+      </div>
 
       {menWears.map((men) => (
         <div key={men.id} className="filter">
@@ -54,7 +71,11 @@ const Men = ({ current, addToCart }) => {
 
           <p className="peter">$ {men.price}</p>
 
-          <button onClick={() => addToCart(men.id)} id="filter-1" className="btn btn-primary">
+          <button
+            onClick={() => addToCart(men.id)}
+            id="filter-1"
+            className="btn btn-primary"
+          >
             Add To Cart
           </button>
           <button id="filter-2" className="btn btn-outline-dark">

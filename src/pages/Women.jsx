@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import { loadCurrentItem, addToCart } from "../redux/Shopping/shopping-actions";
 import { connect } from "react-redux";
 import Navbar from "../components/Navbar";
+import Filter from "../components/Filter";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 
 const Women = ({ current, addToCart }) => {
   const [data, setData] = useState([]);
@@ -41,9 +44,22 @@ const Women = ({ current, addToCart }) => {
   }
 
   return (
-    <div>
+    <div className="filt">
       <Navbar />
-
+      <h1>
+        <Link to="/">
+          <span>
+            <FontAwesomeIcon
+              icon={faArrowLeftLong}
+              className="filt-fontawesome"
+            />
+          </span>
+          Go Back
+        </Link>
+      </h1>
+      <div className="filter-div">
+        <Filter />
+      </div>
       {womenWears.map((women) => (
         <div key={women.id} className="filter">
           <img src={women.image} alt={women.title} />
