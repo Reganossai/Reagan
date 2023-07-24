@@ -38,7 +38,6 @@ const Products = ({ products }) => {
   return (
     <div className="pro">
      
-      <h1 className="products-header">Products</h1>
       <div className="products-div">
         {loading ? (
           <Loading />
