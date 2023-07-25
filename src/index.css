@@ -12,19 +12,22 @@ button {
     cursor: pointer;
 }
 
-.home{
+.home {
     background-color: #FAF9F6;
 }
 
-.aki{
+.aki {
     display: none;
     margin: 10px 0px 0px 20px;
 }
 
+.opolop {
+    background-color: blue;
+}
 
-.prod{
-    
-    background-color:#FAF9F6;
+.prod {
+
+    background-color: #FAF9F6;
 }
 
 .products-header {
@@ -125,6 +128,17 @@ button {
     padding: 20px;
 }
 
+.err-mess {
+    margin: 5px 0px 0px 300px;
+    color: red;
+    font-weight: bold;
+}
+
+#flut-bt {
+    width: 150px;
+    height: 60px;
+    margin-top: 30px;
+}
 
 
 .skel {
@@ -380,7 +394,7 @@ input[type=number] {
 
 .login-loading {
     text-align: center;
-    margin-top: 50%;
+    margin-top: 20%;
     height: 100%;
     font-family: 'Courier New', Courier, monospace;
     font-size: 20px;
@@ -444,28 +458,28 @@ input[type=number] {
 
 }
 
-.inp-1{
+.inp-1 {
     display: flex;
     flex-direction: column;
-    
+
     margin: 0px 0px 0px 300px;
 
 }
 
-.inp-1 input{
+.inp-1 input {
     width: 700px;
     padding: 5px 0px 5px 0px;
     border-radius: 5px;
     margin: 10px 0px 10px 0px;
 }
 
-.inp-2{
+.inp-2 {
     display: flex;
     flex-direction: column;
     margin: 0px 0px 0px 300px;
 }
 
-.inp-2 input{
+.inp-2 input {
     width: 700px;
     padding: 5px 0px 5px 0px;
     border-radius: 5px;
@@ -490,12 +504,12 @@ input[type=number] {
     z-index: 1;
 }
 
-.formis-2{
+.formis-2 {
     width: 1200px;
     margin: 20px 0px 0px 20px;
 }
 
-.formis-2 a{
+.formis-2 a {
     margin: 20px 0px 0px 0px;
 }
 
@@ -566,17 +580,17 @@ input[type=number] {
 
 
 
-#log-bt{
-    margin: 20px 0px 0px 300px ;
+#log-bt {
+    margin: 20px 0px 0px 300px;
     width: 700px;
 }
 
-#reg-bt{
-    margin: 0px 0px 10px 0px ;
+#reg-bt {
+    margin: 0px 0px 10px 0px;
     width: 1190px;
 }
 
-.pedro{
+.pedro {
     margin: 20px 0px 0px 300px;
 
 }
@@ -592,42 +606,54 @@ input[type=number] {
 
     }
 
-    #log-bt{
-        margin: 20px 0px 0px 0px ;
+
+    .login-loading {
+        margin-top: 50%;
+    }
+
+    .err-mess {
+        margin: 5px 0px 0px 0px;
+        color: red;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    #log-bt {
+        margin: 20px 0px 0px 0px;
         width: 250px;
     }
 
-    #reg-bt{
-        margin: 0px 0px 10px 0px ;
+    #reg-bt {
+        margin: 0px 0px 10px 0px;
         width: 290px;
 
     }
-   
-    .pedro{
+
+    .pedro {
         margin: 20px 0px 0px -15px;
     }
 
-    .pedro a{
+    .pedro a {
         width: fit-content;
         font-size: 10px;
     }
 
-    .formis-2{
+    .formis-2 {
         width: 330px;
         margin: 20px 0px 0px 20px;
     }
-    
 
-    .aki{
+
+    .aki {
         display: block;
         margin: 10px 0px 0px 20px;
     }
-    
-    .aki a{
+
+    .aki a {
         text-decoration: none;
         font-size: 15px;
     }
-    
+
 
     .home {
         width: 100%;
@@ -654,14 +680,15 @@ input[type=number] {
 
     .prod {
         overflow-x: hidden;
-    background-color:#FAF9F6;
+        background-color: #FAF9F6;
     }
 
-    .bg{
+    .bg {
         width: 415px;
         height: 155vh;
     }
-    .bg-2{
+
+    .bg-2 {
         width: 415px;
         height: 200vh;
     }
@@ -773,7 +800,6 @@ input[type=number] {
 
     .products-div {
         height: fit-content;
-        margin-top: 100px;
     }
 
     .odu {
@@ -1050,36 +1076,36 @@ input[type=number] {
     }
 
     .filter-home-div {
-        margin: 30px 0px 80px 20px;
+        margin: 30px 0px 0px 20px;
     }
 
-    .inp-1{
+    .inp-1 {
         display: flex;
         flex-direction: column;
         margin: 0px 0px 0px 0px;
-    
+
     }
-    
-    .inp-1 input{
+
+    .inp-1 input {
         width: 250px;
         padding: 5px 0px 5px 0px;
         border-radius: 5px;
         margin: 10px 0px 10px 0px;
     }
-    
-    .inp-2{
+
+    .inp-2 {
         display: flex;
         flex-direction: column;
         margin: 0px 0px 0px 0px;
     }
-    
-    .inp-2 input{
+
+    .inp-2 input {
         width: 250px;
         padding: 5px 0px 5px 0px;
         border-radius: 5px;
         margin: 10px 0px 10px 0px;
     }
-    
+
 
 
 

@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { connect } from "react-redux";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { saveAuthToken } from "../redux/Auth/auth-actions";
+
 import "react-toastify/dist/ReactToastify.css";
 
 const Container = styled.div`
@@ -40,15 +42,10 @@ const Form = styled.form`
   flex-direction: column;
 `;
 
-
-
-
-const Login = () => {
-  const [data, setData] = useState([]);
-  const [users, setUsers] = useState([]);
+const Login = ({ saveToken }) => {
   const [message, setMessage] = useState("");
-  const [signinResponse, setSigninResponse] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const history = useHistory();
 
@@ -84,18 +81,16 @@ const Login = () => {
       data: body,
     })
       .then((response) => {
-        if (response.data.success == true) {
-          console.log(response.data);
+          const token = response.data.data.token;
+          saveToken(token);
+          setIsLoggedIn(true);
+           const saveUserToken =  localStorage.setItem("user-token", token);
           history.push("/prod");
-        } else {
-          // const token = response.data.token;
-        }
-        // setSigninResponse(response.data);
-        // setLoading(false);
+        
       })
       .catch((error) => {
         console.log(error);
-        toast.error("User Login failed due to some reasons");
+        setMessage("Wrong username/password combination")
         setLoading(false);
       });
   };
@@ -130,17 +125,21 @@ const Login = () => {
             <input
               type="password"
               placeholder="password"
-              
               name="password"
               required
               value={formData.password}
               onChange={handleChange}
             />
           </div>
+          <p className="err-mess">{message}</p>
 
-          <button id="log-bt" className="btn btn-primary" type="submit">LOGIN</button>
+          <button id="log-bt" className="btn btn-primary" type="submit">
+            LOGIN
+          </button>
           <div className="pedro">
-          <Link to="/signup">DON'T HAVE AN ACCOUNT WITH US YET? CREATE A NEW ACCOUNT</Link>
+            <Link to="/signup">
+              DON'T HAVE AN ACCOUNT WITH US YET? CREATE A NEW ACCOUNT
+            </Link>
           </div>
         </form>
       </div>
@@ -148,4 +147,10 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    saveToken: (token) => dispatch(saveAuthToken(token)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Login);
