@@ -85,7 +85,7 @@ const Cart = ({ cart, token }) => {
         {isLoggedIn? (
         <FlutterWaveButton {...fwConfig} />
         ):(
-     <button className="btn btn-danger">Login to pay</button>
+     <button className="btn btn-danger" ><Link to="/signin">Login to pay</Link></button>
         ) 
         }
         

@@ -134,11 +134,13 @@ const Navbar = ({ cart, saveToken, token }) => {
                 </div>
               </Link>
             </li>
+            {isLoggedIn ? (
             <li>
               <button className="btn btn-primary" onClick={handleLogout}>
                 Logout
               </button>
             </li>
+          ) : null}
           </ul>
         </div>
       ) : null}
