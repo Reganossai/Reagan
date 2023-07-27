@@ -1,25 +1,32 @@
 import React, { useState, useEffect } from "react";
-import {NavLink, Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faBars,faXmark } from "@fortawesome/free-solid-svg-icons";
-import kinkiverse from "../assets/kinkiverselogo.jpeg"
+import {
+  faCartShopping,
+  faBars,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
+import kinkiverse from "../assets/kinkiverselogo.jpeg";
+import { saveAuthToken } from "../redux/Auth/auth-actions";
+import { useCallback, useMemo } from "react";
 
 const Logo = styled.h1`
   font-weight: bold;
   ${mobile({ fontSize: "24px" })}
 `;
 
-
-
-const Navbar = ({ cart }) => {
+const Navbar = ({ cart, saveToken, token }) => {
   const [cartCount, setCartCount] = useState(0);
   const [nav, setNav] = useState(false);
   const handleNav = () => {
     setNav(!nav);
   };
+  const handleLogout = useCallback(() => {
+    saveToken("");
+  }, [saveToken]);
 
   useEffect(() => {
     let count = 0;
@@ -30,21 +37,26 @@ const Navbar = ({ cart }) => {
     setCartCount(count);
   }, [cart, cartCount]);
 
+  const isLoggedIn = useMemo(() => (token ? true : false), [token]);
+  useEffect(() => {
+    console.log(isLoggedIn);
+  }, []);
+
   nav
-  ? (document.body.style.overflow = "hidden")
-  : (document.body.style.overflow = "auto");
+    ? (document.body.style.overflow = "hidden")
+    : (document.body.style.overflow = "auto");
 
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="logo-div">
         <Link className="logo-links" to="/">
-          <img src={kinkiverse} alt="kink"/>
+          <img src={kinkiverse} alt="kink" />
           <h1 className="logo">Kinkiverse.</h1>
         </Link>
       </div>
       <div id="navbarSupportedContent">
         <ul>
-        <li>
+          <li>
             <NavLink exact activeClassName="active" to="/" id="menu-links">
               HOME
             </NavLink>
@@ -79,9 +91,16 @@ const Navbar = ({ cart }) => {
               </div>
             </NavLink>
           </li>
-          </ul>
+          {isLoggedIn ? (
+            <li>
+              <button className="btn btn-primary" onClick={handleLogout}>
+                Logout
+              </button>
+            </li>
+          ) : null}
+        </ul>
       </div>
-     
+
       {nav ? (
         <div id="navbarSupportedContentMobile">
           <ul>
@@ -115,7 +134,12 @@ const Navbar = ({ cart }) => {
                 </div>
               </Link>
             </li>
-            </ul>
+            <li>
+              <button className="btn btn-primary" onClick={handleLogout}>
+                Logout
+              </button>
+            </li>
+          </ul>
         </div>
       ) : null}
 
@@ -133,7 +157,14 @@ const Navbar = ({ cart }) => {
 const mapStateToProps = (state) => {
   return {
     cart: state.shop.cart,
+    token: state.auth.token,
   };
 };
 
-export default connect(mapStateToProps)(Navbar);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    saveToken: (token) => dispatch(saveAuthToken(token)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

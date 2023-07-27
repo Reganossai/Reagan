@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,8 +21,20 @@ import Women from "./pages/Women";
 import Men from "./pages/Men";
 import Jewelery from "./pages/Jewelery";
 import Electronics from "./pages/Electronics";
+import { saveAuthToken } from "./redux/Auth/auth-actions";
 
-function App({ current }) {
+function App({ current, saveToken }) {
+  const setUserTokenToReduxStateFromLocalStorage = useCallback(() => {
+    const storedToken = localStorage.getItem("user-token");
+    if (storedToken) {
+      saveToken(storedToken);
+    }
+  }, [saveToken]);
+
+  useEffect(() => {
+    setUserTokenToReduxStateFromLocalStorage();
+  }, [setUserTokenToReduxStateFromLocalStorage]);
+
   return (
     <>
       <ToastContainer />
@@ -63,4 +75,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    saveToken: (token) => dispatch(saveAuthToken(token)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

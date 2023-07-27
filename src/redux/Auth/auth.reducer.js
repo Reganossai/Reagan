@@ -6,7 +6,8 @@ const INITIAL_STATE = {
 
 export const authReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case SAVE_USER_TOKEN:
+    case SAVE_USER_TOKEN:  
+    localStorage.setItem('user-token', action.payload);
       return {
         ...state,
         token: action.payload,

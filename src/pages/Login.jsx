@@ -5,7 +5,6 @@ import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
 import { saveAuthToken } from "../redux/Auth/auth-actions";
-
 import "react-toastify/dist/ReactToastify.css";
 
 const Container = styled.div`
@@ -61,7 +60,7 @@ const Login = ({ saveToken }) => {
       [name]: value,
     }));
   };
-
+ 
   const result = (e) => {
     e.preventDefault();
     setLoading(true);
