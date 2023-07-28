@@ -31,10 +31,6 @@ function App({ current, saveToken }) {
     }
   }, [saveToken]);
 
-  useEffect(() => {
-    setUserTokenToReduxStateFromLocalStorage();
-  }, [setUserTokenToReduxStateFromLocalStorage]);
-
   return (
     <>
       <ToastContainer />
